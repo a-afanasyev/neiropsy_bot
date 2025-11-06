@@ -8,6 +8,7 @@ import {
   ScoringResult,
   Question,
   ScoringConfig,
+  UserStateDB,
   ResponseSummary,
   UserStateDB,
 } from './types';
