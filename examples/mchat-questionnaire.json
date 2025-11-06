@@ -1,0 +1,222 @@
+{
+  "title": "M-CHAT-R - Скрининг аутизма (16-30 месяцев)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "key": "q1",
+      "text": "Если Вы указываете на что-то в другом конце комнаты, Ваш ребенок смотрит на это?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q2",
+      "text": "Вы когда-нибудь думали, что Ваш ребенок может быть глухим?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q3",
+      "text": "Ваш ребенок играет в воображаемые или ролевые игры? (например, делает вид, что пьет из пустой чашки, говорит по игрушечному телефону)",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q4",
+      "text": "Вашему ребенку нравится забираться на предметы? (например, на мебель, на горку)",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q5",
+      "text": "Ваш ребенок делает необычные движения пальцами перед глазами?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q6",
+      "text": "Ваш ребенок указывает указательным пальцем, чтобы попросить что-то или получить помощь?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q7",
+      "text": "Ваш ребенок указывает указательным пальцем, чтобы показать Вам что-то интересное?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q8",
+      "text": "Ваш ребенок интересуется другими детьми?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q9",
+      "text": "Ваш ребенок приносит предметы, чтобы показать их Вам?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q10",
+      "text": "Ваш ребенок откликается на свое имя?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q11",
+      "text": "Когда Вы улыбаетесь ребенку, он улыбается в ответ?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q12",
+      "text": "Вашего ребенка расстраивают обычные звуки? (например, пылесос, громкая музыка)",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q13",
+      "text": "Ваш ребенок ходит?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q14",
+      "text": "Ваш ребенок смотрит Вам в глаза, когда Вы разговариваете с ним, играете или одеваете его?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q15",
+      "text": "Ваш ребенок пытается копировать то, что Вы делаете? (например, махать рукой на прощание, хлопать в ладоши)",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q16",
+      "text": "Если Вы оборачиваетесь, чтобы посмотреть на что-то, Ваш ребенок оборачивается, чтобы увидеть, на что Вы смотрите?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q17",
+      "text": "Ваш ребенок пытается добиться того, чтобы Вы посмотрели на него?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q18",
+      "text": "Ваш ребенок понимает, когда Вы говорите ему что-то сделать?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q19",
+      "text": "Если происходит что-то новое, Ваш ребенок смотрит на Ваше лицо, чтобы понять, как Вы к этому относитесь?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q20",
+      "text": "Вашему ребенку нравятся движения? (например, когда его качают или подбрасывают на коленях)",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" }
+      ],
+      "required": true
+    },
+    {
+      "key": "age_months",
+      "text": "Возраст ребенка (полных месяцев)",
+      "type": "numeric",
+      "min": 16,
+      "max": 30,
+      "required": true
+    },
+    {
+      "key": "concerns",
+      "text": "Есть ли у Вас какие-либо опасения по поводу развития ребенка? (необязательно)",
+      "type": "text",
+      "max_len": 500,
+      "required": false
+    }
+  ]
+}
