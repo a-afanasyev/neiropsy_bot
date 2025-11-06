@@ -1,0 +1,42 @@
+{
+  "name": "neiropsy-bot",
+  "version": "1.0.0",
+  "description": "Telegram bot for psychological/neuropsychological surveys",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch app/src/index.ts",
+    "start": "node dist/index.js",
+    "migrate": "node dist/migrate.js",
+    "test": "jest",
+    "lint": "eslint . --ext .ts",
+    "format": "prettier --write \"app/src/**/*.ts\""
+  },
+  "keywords": ["telegram", "bot", "survey", "psychology"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "fastify": "^4.25.2",
+    "@fastify/cors": "^9.0.1",
+    "pg": "^8.11.3",
+    "zod": "^3.22.4",
+    "dotenv": "^16.3.1",
+    "crypto": "^1.0.1",
+    "json2csv": "^6.0.0-alpha.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/node-telegram-bot-api": "^0.64.0",
+    "@types/pg": "^8.10.9",
+    "tsx": "^4.7.0",
+    "typescript": "^5.3.3",
+    "jest": "^29.7.0",
+    "@types/jest": "^29.5.11",
+    "ts-jest": "^29.1.1",
+    "eslint": "^8.56.0",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "prettier": "^3.1.1"
+  }
+}

@@ -1,0 +1,51 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: neiropsy_bot_db
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: app
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+      - ./app/migrations:/docker-entrypoint-initdb.d
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U app"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    networks:
+      - neiropsy_network
+
+  app:
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    container_name: neiropsy_bot_app
+    environment:
+      NODE_ENV: production
+      DATABASE_URL: postgres://app:app@db:5432/app
+      TELEGRAM_BOT_TOKEN: ${TELEGRAM_BOT_TOKEN}
+      ADMIN_TG_ID: ${ADMIN_TG_ID}
+      PUBLIC_BOT_LINK: ${PUBLIC_BOT_LINK:-https://t.me/your_bot}
+      PORT: 8080
+      SESSION_EXPIRY_HOURS: 24
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "8080:8080"
+    networks:
+      - neiropsy_network
+    restart: unless-stopped
+
+volumes:
+  dbdata:
+
+networks:
+  neiropsy_network:
+    driver: bridge

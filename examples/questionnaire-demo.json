@@ -1,0 +1,58 @@
+{
+  "title": "Скрининг развития ребенка (демо)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "key": "q1",
+      "text": "Ребенок смотрит в глаза при общении?",
+      "type": "single_choice",
+      "options": [
+        { "value": "yes", "label": "Да" },
+        { "value": "no", "label": "Нет" },
+        { "value": "sometimes", "label": "Иногда" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q2",
+      "text": "Оцените частоту повторяющегося поведения (стереотипии, эхолалии)",
+      "type": "likert_5",
+      "labels": ["никогда", "редко", "иногда", "часто", "очень часто"],
+      "required": true
+    },
+    {
+      "key": "q3",
+      "text": "Возраст ребенка (полных лет)",
+      "type": "numeric",
+      "min": 0,
+      "max": 18,
+      "required": true
+    },
+    {
+      "key": "q4",
+      "text": "Опишите любые особенности поведения, которые вас беспокоят",
+      "type": "text",
+      "max_len": 400,
+      "required": false
+    },
+    {
+      "key": "q5",
+      "text": "Ребенок реагирует на свое имя?",
+      "type": "single_choice",
+      "options": [
+        { "value": "always", "label": "Всегда" },
+        { "value": "usually", "label": "Обычно" },
+        { "value": "rarely", "label": "Редко" },
+        { "value": "never", "label": "Никогда" }
+      ],
+      "required": true
+    },
+    {
+      "key": "q6",
+      "text": "Дата рождения ребенка",
+      "type": "date",
+      "required": false
+    }
+  ]
+}
