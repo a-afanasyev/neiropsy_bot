@@ -17,7 +17,7 @@ fastify.register(cors, {
 const repo = getRepository();
 
 // Health check
-fastify.get('/health', async (request, reply) => {
+fastify.get('/health', async () => {
   return { status: 'ok', timestamp: new Date().toISOString() };
 });
 
@@ -139,7 +139,7 @@ fastify.get('/questionnaires/:id', async (request, reply) => {
 fastify.post('/sessions', async (request, reply) => {
   try {
     const body = request.body as any;
-    const { questionnaire_id } = body;
+    const { questionnaire_id, telegram_user_id } = body;
 
     if (!questionnaire_id) {
       return reply.status(400).send({
@@ -155,7 +155,12 @@ fastify.post('/sessions', async (request, reply) => {
       });
     }
 
-    const session = await repo.createSession(questionnaire_id, config.session_expiry_hours);
+    // Создаем сессию с опциональным telegram_user_id для readable_id
+    const session = await repo.createSession(
+      questionnaire_id, 
+      config.session_expiry_hours,
+      telegram_user_id // Опциональный параметр
+    );
 
     const link = `${config.public_bot_link}?start=${session.token}`;
 
@@ -163,6 +168,7 @@ fastify.post('/sessions', async (request, reply) => {
       success: true,
       link,
       token: session.token,
+      readable_id: session.readable_id || null, // Добавляем readable_id в ответ
       expires_at: session.expires_at.toISOString(),
     });
   } catch (error: any) {
@@ -244,7 +250,8 @@ fastify.get('/exports/responses.csv', async (request, reply) => {
 
     // Flatten the data for CSV
     const flattenedData = responses.map((r) => {
-      const base = {
+      // Используем Record<string, any> для динамических свойств
+      const base: Record<string, any> = {
         id: r.id,
         questionnaire_title: r.questionnaire_title,
         questionnaire_version: r.questionnaire_version,
@@ -254,13 +261,13 @@ fastify.get('/exports/responses.csv', async (request, reply) => {
         summary: r.summary_text || '',
       };
 
-      // Add overall score
+      // Добавляем общий балл если есть
       if (r.score_json && r.score_json.overall) {
         base['overall_score'] = r.score_json.overall.score;
         base['overall_label'] = r.score_json.overall.label;
       }
 
-      // Add scale scores
+      // Добавляем баллы по шкалам
       if (r.score_json && r.score_json.scales) {
         r.score_json.scales.forEach((scale: any) => {
           base[`scale_${scale.id}_score`] = scale.score;
@@ -268,12 +275,12 @@ fastify.get('/exports/responses.csv', async (request, reply) => {
         });
       }
 
-      // Add flags
+      // Добавляем флаги
       if (r.score_json && r.score_json.flags) {
         base['flags'] = r.score_json.flags.join('; ');
       }
 
-      // Add answers
+      // Добавляем ответы
       if (r.answers_json) {
         Object.entries(r.answers_json).forEach(([key, value]) => {
           base[`answer_${key}`] = Array.isArray(value) ? value.join(', ') : String(value);
@@ -325,7 +332,7 @@ fastify.get('/exports/responses.json', async (request, reply) => {
 });
 
 // Cleanup expired sessions (can be called manually or via cron)
-fastify.post('/admin/cleanup-sessions', async (request, reply) => {
+fastify.post('/admin/cleanup-sessions', async (_, reply) => {
   try {
     const count = await repo.cleanupExpiredSessions();
     return reply.send({

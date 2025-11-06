@@ -2,12 +2,16 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+# Копируем package.json и устанавливаем зависимости
+# Используем npm install вместо npm ci, так как package-lock.json может отсутствовать
 COPY package*.json ./
-RUN npm ci --only=production && npm cache clean --force
+RUN npm install --omit=dev && npm cache clean --force
 
+# Копируем исходный код
 COPY tsconfig.json ./
 COPY app ./app
 
+# Устанавливаем TypeScript и собираем проект
 RUN npm install -D typescript && \
     npm run build && \
     npm prune --production

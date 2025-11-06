@@ -90,6 +90,7 @@ export interface ScoringResult {
 
 export interface QuestionnaireDB {
   id: string;
+  code?: string; // Короткий идентификатор (adhd, mchat, sdq, etc.)
   title: string;
   version: string;
   language: string;
@@ -104,6 +105,8 @@ export interface Session {
   id: string;
   questionnaire_id: string;
   token: string;
+  readable_id?: string; // Читаемый ID: user_{telegram_id}_{code}_{date}_{seq}
+  created_by_telegram_id?: number; // Telegram ID создателя сессии
   expires_at: Date;
   used: boolean;
   created_at: Date;

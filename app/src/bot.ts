@@ -4,7 +4,7 @@ import { getRepository } from './repo';
 import { calculateScore, generateSummary } from './scoring';
 import { validateAnswer } from './schema';
 import texts from './texts.ru';
-import { BotUserState, Question } from './types';
+import { BotUserState } from './types';
 
 const repo = getRepository();
 
@@ -166,7 +166,7 @@ export class NeiropsyBot {
   }
 
   private async handleMessage(msg: TelegramBot.Message) {
-    const chatId = msg.chat.id;
+    // chatId доступен через msg.chat.id при необходимости
     const userId = msg.from?.id;
 
     if (!userId || !msg.text) {
@@ -189,6 +189,8 @@ export class NeiropsyBot {
     const userId = query.from.id;
     const data = query.data;
 
+    console.log(`[CALLBACK] User ${userId}, data: ${data}`);
+
     if (!chatId || !data) {
       return;
     }
@@ -196,6 +198,7 @@ export class NeiropsyBot {
     await this.bot.answerCallbackQuery(query.id);
 
     const userState = await this.loadUserState(userId);
+    console.log(`[CALLBACK] User state loaded: ${userState ? 'YES' : 'NO'}`);
 
     if (data === 'start_survey') {
       if (!userState) {
@@ -238,13 +241,17 @@ export class NeiropsyBot {
   }
 
   private async askQuestion(chatId: number, userState: BotUserState) {
+    console.log(`[ASK_QUESTION] Question ${userState.currentQuestionIndex + 1}/${userState.questions.length}`);
+    
     if (userState.currentQuestionIndex >= userState.questions.length) {
       // All questions answered, show review
+      console.log(`[ASK_QUESTION] All questions answered, showing review`);
       await this.showReview(chatId, userState);
       return;
     }
 
     const question = userState.questions[userState.currentQuestionIndex];
+    console.log(`[ASK_QUESTION] Question key: ${question.key}, type: ${question.type}`);
     const progress = texts.questionProgress(
       userState.currentQuestionIndex + 1,
       userState.questions.length
@@ -259,6 +266,12 @@ export class NeiropsyBot {
         break;
       case 'multi_choice':
         messageText += '\n\n' + texts.multiChoiceHint;
+        // Показываем варианты для multi_choice
+        if (question.options) {
+          messageText += '\n\n' + question.options.map((opt) => 
+            `${opt.value} - ${opt.label}`
+          ).join('\n');
+        }
         break;
       case 'likert_5':
         messageText += '\n\n' + texts.likertHint;
@@ -328,6 +341,8 @@ export class NeiropsyBot {
     const chatId = msg.chat.id;
     const answerText = msg.text || '';
 
+    console.log(`[ANSWER] User ${userId}, Question ${userState.currentQuestionIndex + 1}/${userState.questions.length}, Text: "${answerText}"`);
+
     const question = userState.questions[userState.currentQuestionIndex];
 
     // Parse answer based on question type
@@ -336,18 +351,25 @@ export class NeiropsyBot {
     if (question.type === 'multi_choice') {
       // Parse comma-separated values
       answer = answerText.split(',').map((v) => v.trim());
+      console.log(`[ANSWER] Parsed multi_choice: ${JSON.stringify(answer)}`);
     } else if (question.type === 'numeric') {
       answer = parseFloat(answerText);
+      console.log(`[ANSWER] Parsed numeric: ${answer}`);
     } else if (question.type === 'likert_5') {
       answer = parseInt(answerText, 10);
+      console.log(`[ANSWER] Parsed likert_5: ${answer}`);
     }
 
     // Validate answer
+    console.log(`[ANSWER] Validating answer...`);
     const validation = validateAnswer(question, answer);
     if (!validation.valid) {
+      console.log(`[ANSWER] ❌ Validation failed: ${validation.error}`);
       await this.bot.sendMessage(chatId, `${texts.invalidAnswer}\n${validation.error}`);
       return;
     }
+
+    console.log(`[ANSWER] ✅ Valid, saving answer...`);
 
     // Save answer
     userState.answers[question.key] = answer;
@@ -356,8 +378,11 @@ export class NeiropsyBot {
     userState.currentQuestionIndex++;
 
     // Save progress to database (both answer and index)
+    console.log(`[ANSWER] Saving to database...`);
     await this.saveUserState(userId, userState);
     await repo.updateResponseAnswers(userState.responseId, userState.answers);
+    
+    console.log(`[ANSWER] ✅ Saved, moving to next question...`);
 
     await this.askQuestion(chatId, userState);
   }
@@ -421,8 +446,13 @@ export class NeiropsyBot {
       // Send thank you message
       await this.bot.sendMessage(chatId, texts.thankYou);
 
-      // Notify admin
-      await this.notifyAdmin(questionnaire.title, userState.responseId, summary);
+      // Notify admin с передачей readable_id
+      await this.notifyAdmin(
+        questionnaire.title, 
+        userState.responseId, 
+        summary,
+        session?.readable_id // Передаем читаемый ID сессии
+      );
 
       // Clear user state from database
       await repo.deleteUserState(userId);
@@ -435,11 +465,17 @@ export class NeiropsyBot {
   private async notifyAdmin(
     questionnaireTitle: string,
     responseId: string,
-    summary: string
+    summary: string,
+    readableSessionId?: string
   ) {
     try {
       const adminId = parseInt(config.admin_tg_id, 10);
-      const message = texts.newResponseNotification(questionnaireTitle, responseId, summary);
+      const message = texts.newResponseNotification(
+        questionnaireTitle, 
+        responseId, 
+        summary,
+        readableSessionId
+      );
       await this.bot.sendMessage(adminId, message);
     } catch (error) {
       console.error('Error notifying admin:', error);
@@ -451,7 +487,10 @@ export class NeiropsyBot {
     const chatId = msg.chat.id;
     const userId = msg.from?.id;
 
+    console.log(`[HELP] User ${userId} requested help. Is admin: ${isAdmin(userId || 0)}`);
+
     if (!userId || !isAdmin(userId)) {
+      console.log(`[HELP] Access denied for user ${userId}`);
       await this.bot.sendMessage(chatId, texts.adminOnly);
       return;
     }
@@ -463,7 +502,10 @@ export class NeiropsyBot {
     const chatId = msg.chat.id;
     const userId = msg.from?.id;
 
+    console.log(`[NEWSESSION] User ${userId} requested new session. Is admin: ${isAdmin(userId || 0)}`);
+
     if (!userId || !isAdmin(userId)) {
+      console.log(`[NEWSESSION] Access denied for user ${userId}`);
       await this.bot.sendMessage(chatId, texts.adminOnly);
       return;
     }
@@ -482,12 +524,16 @@ export class NeiropsyBot {
         return;
       }
 
-      // Create session
-      const session = await repo.createSession(questionnaireId, config.session_expiry_hours);
+      // Create session с передачей telegram user ID
+      const session = await repo.createSession(
+        questionnaireId, 
+        config.session_expiry_hours,
+        userId // Передаем telegram ID для генерации readable_id
+      );
       const link = `${config.public_bot_link}?start=${session.token}`;
       const expiresAt = texts.formatDate(session.expires_at);
 
-      await this.bot.sendMessage(chatId, texts.sessionCreated(link, expiresAt));
+      await this.bot.sendMessage(chatId, texts.sessionCreated(link, expiresAt, session.readable_id));
     } catch (error) {
       console.error('Error creating session:', error);
       await this.bot.sendMessage(chatId, texts.serverError);
@@ -498,7 +544,10 @@ export class NeiropsyBot {
     const chatId = msg.chat.id;
     const userId = msg.from?.id;
 
+    console.log(`[LISTQ] User ${userId} requested questionnaires list. Is admin: ${isAdmin(userId || 0)}`);
+
     if (!userId || !isAdmin(userId)) {
+      console.log(`[LISTQ] Access denied for user ${userId}`);
       await this.bot.sendMessage(chatId, texts.adminOnly);
       return;
     }
@@ -518,7 +567,8 @@ export class NeiropsyBot {
           q.id,
           q.title,
           q.version,
-          q.questions_json.length
+          q.questions_json.length,
+          q.code // Передаем короткий код
         );
       });
 

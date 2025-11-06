@@ -1,4 +1,4 @@
-import { Pool, PoolClient } from 'pg';
+import { Pool } from 'pg';
 import { randomBytes } from 'crypto';
 import {
   QuestionnaireDB,
@@ -9,6 +9,7 @@ import {
   Question,
   ScoringConfig,
   ResponseSummary,
+  UserStateDB,
 } from './types';
 import { config } from './config';
 
@@ -63,9 +64,16 @@ export class Repository {
     return this.mapQuestionnaire(result.rows[0]);
   }
 
-  async getQuestionnaire(id: string): Promise<QuestionnaireDB | null> {
-    const query = 'SELECT * FROM questionnaires WHERE id = $1';
-    const result = await this.pool.query(query, [id]);
+  // Получить опросник по ID или короткому коду
+  async getQuestionnaire(idOrCode: string): Promise<QuestionnaireDB | null> {
+    // Пробуем сначала по коду, потом по UUID (с явным приведением типа)
+    const query = `
+      SELECT * FROM questionnaires 
+      WHERE code = $1 
+         OR (id::text = $1)
+      LIMIT 1
+    `;
+    const result = await this.pool.query(query, [idOrCode]);
     return result.rows.length > 0 ? this.mapQuestionnaire(result.rows[0]) : null;
   }
 
@@ -115,18 +123,44 @@ export class Repository {
   }
 
   // Sessions
-  async createSession(questionnaireId: string, expiryHours = 24): Promise<Session> {
+  async createSession(
+    questionnaireIdOrCode: string, 
+    expiryHours = 24, 
+    telegramUserId?: number
+  ): Promise<Session> {
+    // Сначала находим опросник по коду или ID, чтобы получить UUID
+    const questionnaire = await this.getQuestionnaire(questionnaireIdOrCode);
+    if (!questionnaire) {
+      throw new Error('Questionnaire not found');
+    }
+
     const token = this.generateToken();
     const expiresAt = new Date();
     expiresAt.setHours(expiresAt.getHours() + expiryHours);
 
+    // Генерируем читаемый ID если передан telegram_user_id
+    let readableId: string | null = null;
+    if (telegramUserId) {
+      const readableIdResult = await this.pool.query(
+        'SELECT generate_readable_session_id($1, $2) as readable_id',
+        [telegramUserId, questionnaire.id]
+      );
+      readableId = readableIdResult.rows[0].readable_id;
+    }
+
     const query = `
-      INSERT INTO sessions (questionnaire_id, token, expires_at)
-      VALUES ($1, $2, $3)
+      INSERT INTO sessions (questionnaire_id, token, expires_at, readable_id, created_by_telegram_id)
+      VALUES ($1, $2, $3, $4, $5)
       RETURNING *
     `;
 
-    const result = await this.pool.query(query, [questionnaireId, token, expiresAt]);
+    const result = await this.pool.query(query, [
+      questionnaire.id, 
+      token, 
+      expiresAt, 
+      readableId,
+      telegramUserId || null
+    ]);
     return this.mapSession(result.rows[0]);
   }
 
@@ -378,6 +412,8 @@ export class Repository {
       id: row.id,
       questionnaire_id: row.questionnaire_id,
       token: row.token,
+      readable_id: row.readable_id, // Добавляем readable_id
+      created_by_telegram_id: row.created_by_telegram_id, // Добавляем telegram_user_id
       expires_at: row.expires_at,
       used: row.used,
       created_at: row.created_at,

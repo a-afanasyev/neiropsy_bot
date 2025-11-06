@@ -59,27 +59,39 @@ export const texts = {
 
   // Admin commands
   adminWelcome: '👨‍⚕️ Панель администратора',
-  adminHelp: `Доступные команды:
+  adminHelp: `📋 Доступные команды:
 
-/newsession <questionnaire_id> - создать новую сессию
+/newsession <код> - создать новую сессию
 /listq - список опросников
-/listr <questionnaire_id> - список ответов
-/help - эта справка`,
+/listr <код> - список ответов
+/help - эта справка
 
-  sessionCreated: (link: string, expiresAt: string) =>
-    `✅ Сессия создана!
+💡 Используйте короткие коды:
+adhd, mchat, sdq, sensory, demo
 
-🔗 Ссылка: ${link}
+Примеры:
+/newsession adhd
+/newsession mchat`,
 
-⏰ Истекает: ${expiresAt}
-
-Отправьте эту ссылку клиенту.`,
+  sessionCreated: (link: string, expiresAt: string, readableId?: string) => {
+    let message = `✅ Сессия создана!`;
+    
+    if (readableId) {
+      message += `\n\n🆔 ID: ${readableId}`;
+    }
+    
+    message += `\n\n🔗 Ссылка: ${link}`;
+    message += `\n\n⏰ Истекает: ${expiresAt}`;
+    message += `\n\nОтправьте эту ссылку клиенту.`;
+    
+    return message;
+  },
 
   questionnairesList: (count: number) =>
     `📋 Всего опросников: ${count}`,
 
-  questionnaireItem: (id: string, title: string, version: string, questions: number) =>
-    `\n🔹 ID: ${id}\n   Название: ${title}\n   Версия: ${version}\n   Вопросов: ${questions}`,
+  questionnaireItem: (id: string, title: string, version: string, questions: number, code?: string) =>
+    `\n🔹 Код: ${code || id}\n   Название: ${title}\n   Версия: ${version}\n   Вопросов: ${questions}`,
 
   noQuestionnaires: '❌ Опросники не найдены.',
 
@@ -92,15 +104,25 @@ export const texts = {
   noResponses: '❌ Ответы не найдены.',
 
   // Notifications
-  newResponseNotification: (questionnaireTitle: string, responseId: string, summary: string) =>
-    `📬 Новый ответ получен!
-
-📋 Опросник: ${questionnaireTitle}
-🆔 ID ответа: ${responseId}
-
-${summary}
-
-Используйте /listr для просмотра всех ответов.`,
+  newResponseNotification: (
+    questionnaireTitle: string, 
+    responseId: string, 
+    summary: string,
+    readableSessionId?: string
+  ) => {
+    let message = `📬 Новый ответ получен!`;
+    message += `\n\n📋 Опросник: ${questionnaireTitle}`;
+    
+    if (readableSessionId) {
+      message += `\n🆔 Сессия: ${readableSessionId}`;
+    }
+    
+    message += `\n🆔 ID ответа: ${responseId}`;
+    message += `\n\n📊 Результаты опроса:\n\n${summary}`;
+    message += `\n\nИспользуйте /listr для просмотра всех ответов.`;
+    
+    return message;
+  },
 
   // Errors for admin
   adminOnly: '❌ Эта команда доступна только администратору.',

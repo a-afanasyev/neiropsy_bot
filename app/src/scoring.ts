@@ -116,6 +116,7 @@ export class ScoringEngine {
 
   /**
    * Determine level based on score and thresholds
+   * Поддерживает как 'level' (для шкал), так и 'label' (для overall)
    */
   private determineLevel(score: number, thresholds: any[]): string {
     for (const threshold of thresholds) {
@@ -123,7 +124,8 @@ export class ScoringEngine {
       const meetsLt = threshold.lt === undefined || score < threshold.lt;
 
       if (meetsGte && meetsLt) {
-        return threshold.level;
+        // Поддержка обоих форматов: level (для scales) и label (для overall)
+        return threshold.level || threshold.label || 'неопределено';
       }
     }
     return 'неопределено';
