@@ -10,7 +10,6 @@ import {
   ScoringConfig,
   UserStateDB,
   ResponseSummary,
-  UserStateDB,
 } from './types';
 import { config } from './config';
 
