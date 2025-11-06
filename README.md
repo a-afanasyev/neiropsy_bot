@@ -52,8 +52,8 @@ docker-compose logs -f app
 ```
 
 Сервисы будут доступны:
-- REST API: http://localhost:8080
-- PostgreSQL: localhost:5432
+- REST API: http://localhost:8088
+- PostgreSQL: localhost:5439
 
 ### 3. Запуск для разработки (локально)
 
@@ -88,7 +88,7 @@ npm start
 #### Создание опросника через API
 
 ```bash
-curl -X POST http://localhost:8080/questionnaires \
+curl -X POST http://localhost:8088/questionnaires \
   -H "Content-Type: application/json" \
   -d '{
     "questionnaire": <содержимое questionnaire.json>,

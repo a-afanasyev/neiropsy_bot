@@ -3,7 +3,7 @@
 # Script to upload a questionnaire to the API
 # Usage: ./upload-questionnaire.sh
 
-API_URL=${API_URL:-http://localhost:8080}
+API_URL=${API_URL:-http://localhost:8088}
 
 echo "Uploading questionnaire to $API_URL..."
 

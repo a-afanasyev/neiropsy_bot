@@ -31,7 +31,7 @@ export const config: Config = {
   telegram_bot_token: getEnv('TELEGRAM_BOT_TOKEN'),
   admin_tg_id: getEnv('ADMIN_TG_ID'),
   public_bot_link: getEnv('PUBLIC_BOT_LINK'),
-  port: getEnvNumber('PORT', 8080),
+  port: getEnvNumber('PORT', 8088),
   session_expiry_hours: getEnvNumber('SESSION_EXPIRY_HOURS', 24),
   node_env: getEnv('NODE_ENV', 'development'),
 };
