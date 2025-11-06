@@ -8,15 +8,47 @@ import { BotUserState, Question } from './types';
 
 const repo = getRepository();
 
-// In-memory user states (for production, consider Redis)
-const userStates = new Map<number, BotUserState>();
-
 export class NeiropsyBot {
   private bot: TelegramBot;
 
   constructor() {
     this.bot = new TelegramBot(config.telegram_bot_token, { polling: true });
     this.setupHandlers();
+  }
+
+  // Load user state from database
+  private async loadUserState(userId: number): Promise<BotUserState | null> {
+    const dbState = await repo.getUserState(userId);
+    if (!dbState) {
+      return null;
+    }
+
+    // Load questionnaire to get questions array
+    const questionnaire = await repo.getQuestionnaire(dbState.questionnaire_id);
+    if (!questionnaire) {
+      return null;
+    }
+
+    return {
+      sessionToken: dbState.session_token,
+      questionnaireId: dbState.questionnaire_id,
+      responseId: dbState.response_id,
+      currentQuestionIndex: dbState.current_question_index,
+      answers: dbState.answers_json,
+      questions: questionnaire.questions_json,
+    };
+  }
+
+  // Save user state to database
+  private async saveUserState(userId: number, state: BotUserState): Promise<void> {
+    await repo.saveUserState(
+      userId,
+      state.responseId,
+      state.sessionToken,
+      state.questionnaireId,
+      state.currentQuestionIndex,
+      state.answers
+    );
   }
 
   private setupHandlers() {
@@ -122,7 +154,8 @@ export class NeiropsyBot {
       questions: questionnaire.questions_json,
     };
 
-    userStates.set(userId, userState);
+    // Save state to database
+    await this.saveUserState(userId, userState);
 
     // Send welcome message
     await this.bot.sendMessage(chatId, texts.welcome, {
@@ -140,14 +173,14 @@ export class NeiropsyBot {
       return;
     }
 
-    const userState = userStates.get(userId);
+    const userState = await this.loadUserState(userId);
     if (!userState) {
       return;
     }
 
     // User is answering a question
     if (userState.currentQuestionIndex >= 0) {
-      await this.handleAnswer(msg, userState);
+      await this.handleAnswer(msg, userState, userId);
     }
   }
 
@@ -162,7 +195,7 @@ export class NeiropsyBot {
 
     await this.bot.answerCallbackQuery(query.id);
 
-    const userState = userStates.get(userId);
+    const userState = await this.loadUserState(userId);
 
     if (data === 'start_survey') {
       if (!userState) {
@@ -170,12 +203,14 @@ export class NeiropsyBot {
         return;
       }
       userState.currentQuestionIndex = 0;
+      await this.saveUserState(userId, userState);
       await this.askQuestion(chatId, userState);
     } else if (data === 'next_question') {
       if (!userState) {
         return;
       }
       userState.currentQuestionIndex++;
+      await this.saveUserState(userId, userState);
       await this.askQuestion(chatId, userState);
     } else if (data.startsWith('answer_')) {
       // Handle inline button answers (for single_choice)
@@ -186,17 +221,19 @@ export class NeiropsyBot {
       const question = userState.questions[userState.currentQuestionIndex];
       userState.answers[question.key] = answerValue;
 
-      // Save progress
-      await repo.updateResponseAnswers(userState.responseId, userState.answers);
-
       // Move to next question
       userState.currentQuestionIndex++;
+
+      // Save progress (both answer and index)
+      await this.saveUserState(userId, userState);
+      await repo.updateResponseAnswers(userState.responseId, userState.answers);
+
       await this.askQuestion(chatId, userState);
     } else if (data === 'submit_answers') {
       if (!userState) {
         return;
       }
-      await this.submitAnswers(chatId, userState);
+      await this.submitAnswers(chatId, userState, userId);
     }
   }
 
@@ -287,7 +324,7 @@ export class NeiropsyBot {
     }
   }
 
-  private async handleAnswer(msg: TelegramBot.Message, userState: BotUserState) {
+  private async handleAnswer(msg: TelegramBot.Message, userState: BotUserState, userId: number) {
     const chatId = msg.chat.id;
     const answerText = msg.text || '';
 
@@ -315,11 +352,13 @@ export class NeiropsyBot {
     // Save answer
     userState.answers[question.key] = answer;
 
-    // Save progress to database
-    await repo.updateResponseAnswers(userState.responseId, userState.answers);
-
     // Move to next question
     userState.currentQuestionIndex++;
+
+    // Save progress to database (both answer and index)
+    await this.saveUserState(userId, userState);
+    await repo.updateResponseAnswers(userState.responseId, userState.answers);
+
     await this.askQuestion(chatId, userState);
   }
 
@@ -352,7 +391,7 @@ export class NeiropsyBot {
     });
   }
 
-  private async submitAnswers(chatId: number, userState: BotUserState) {
+  private async submitAnswers(chatId: number, userState: BotUserState, userId: number) {
     try {
       // Get questionnaire for scoring
       const questionnaire = await repo.getQuestionnaire(userState.questionnaireId);
@@ -385,8 +424,8 @@ export class NeiropsyBot {
       // Notify admin
       await this.notifyAdmin(questionnaire.title, userState.responseId, summary);
 
-      // Clear user state
-      userStates.delete(chatId);
+      // Clear user state from database
+      await repo.deleteUserState(userId);
     } catch (error) {
       console.error('Error submitting answers:', error);
       await this.bot.sendMessage(chatId, texts.serverError);

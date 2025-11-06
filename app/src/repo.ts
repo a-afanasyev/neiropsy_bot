@@ -290,6 +290,58 @@ export class Repository {
     return result.rows;
   }
 
+  // User States (for persistent bot sessions)
+  async saveUserState(
+    telegramUserId: number,
+    responseId: string,
+    sessionToken: string,
+    questionnaireId: string,
+    currentQuestionIndex: number,
+    answers: Record<string, any>
+  ): Promise<UserStateDB> {
+    const query = `
+      INSERT INTO user_states
+        (telegram_user_id, response_id, session_token, questionnaire_id, current_question_index, answers_json)
+      VALUES ($1, $2, $3, $4, $5, $6)
+      ON CONFLICT (telegram_user_id, response_id)
+      DO UPDATE SET
+        current_question_index = EXCLUDED.current_question_index,
+        answers_json = EXCLUDED.answers_json,
+        last_activity = CURRENT_TIMESTAMP
+      RETURNING *
+    `;
+    const result = await this.pool.query(query, [
+      telegramUserId,
+      responseId,
+      sessionToken,
+      questionnaireId,
+      currentQuestionIndex,
+      JSON.stringify(answers),
+    ]);
+    return this.mapUserState(result.rows[0]);
+  }
+
+  async getUserState(telegramUserId: number): Promise<UserStateDB | null> {
+    const query = `
+      SELECT * FROM user_states
+      WHERE telegram_user_id = $1
+      ORDER BY last_activity DESC
+      LIMIT 1
+    `;
+    const result = await this.pool.query(query, [telegramUserId]);
+    return result.rows.length > 0 ? this.mapUserState(result.rows[0]) : null;
+  }
+
+  async deleteUserState(telegramUserId: number): Promise<void> {
+    const query = 'DELETE FROM user_states WHERE telegram_user_id = $1';
+    await this.pool.query(query, [telegramUserId]);
+  }
+
+  async cleanupOldUserStates(): Promise<number> {
+    const result = await this.pool.query('SELECT cleanup_old_user_states()');
+    return result.rows[0].cleanup_old_user_states || 0;
+  }
+
   // Utility
   async cleanupExpiredSessions(): Promise<number> {
     const query = `
@@ -345,6 +397,21 @@ export class Repository {
       status: row.status,
       created_at: row.created_at,
       updated_at: row.updated_at,
+    };
+  }
+
+  private mapUserState(row: any): UserStateDB {
+    return {
+      id: row.id,
+      telegram_user_id: parseInt(row.telegram_user_id, 10),
+      response_id: row.response_id,
+      session_token: row.session_token,
+      questionnaire_id: row.questionnaire_id,
+      current_question_index: row.current_question_index,
+      answers_json: row.answers_json,
+      created_at: row.created_at,
+      updated_at: row.updated_at,
+      last_activity: row.last_activity,
     };
   }
 }

@@ -134,6 +134,19 @@ export interface BotUserState {
   questions: Question[];
 }
 
+export interface UserStateDB {
+  id: string;
+  telegram_user_id: number;
+  response_id: string;
+  session_token: string;
+  questionnaire_id: string;
+  current_question_index: number;
+  answers_json: Record<string, any>;
+  created_at: Date;
+  updated_at: Date;
+  last_activity: Date;
+}
+
 export interface CreateSessionRequest {
   questionnaire_id: string;
 }
