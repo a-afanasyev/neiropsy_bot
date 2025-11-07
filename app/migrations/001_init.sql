@@ -1,152 +1,55 @@
--- Initialization script for neiropsy_bot database
--- Creates tables for questionnaires, sessions, and responses
+-- Инициализация базы данных для neiropsy_bot
+-- Миграция 001: Основные таблицы для опросников и ответов
 
--- Enable extensions
+-- Включаем расширение для UUID
 CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
 
--- Questionnaires table
+-- ======================
+-- СУЩЕСТВУЮЩИЕ ТАБЛИЦЫ
+-- ======================
+
+-- Таблица шаблонов опросников
+-- Хранит структуру опросников (вопросы, варианты ответов)
 CREATE TABLE IF NOT EXISTS questionnaires (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(500) NOT NULL,
-    version VARCHAR(50) NOT NULL DEFAULT '1.0',
-    language VARCHAR(10) NOT NULL DEFAULT 'ru',
+    -- JSON с перечнем вопросов данного опросника
     questions_json JSONB NOT NULL,
+    -- JSON с описанием правил подсчета баллов/результатов
     scoring_json JSONB NOT NULL,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    is_active BOOLEAN DEFAULT true,
-    CONSTRAINT valid_questions CHECK (jsonb_typeof(questions_json) = 'array'),
-    CONSTRAINT valid_scoring CHECK (jsonb_typeof(scoring_json) = 'object')
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    CONSTRAINT questionnaires_title_unique UNIQUE (title)
 );
 
--- Index for active questionnaires lookup
-CREATE INDEX idx_questionnaires_active ON questionnaires(is_active, created_at DESC);
-CREATE INDEX idx_questionnaires_language ON questionnaires(language);
-
--- Sessions table (one-time links)
-CREATE TABLE IF NOT EXISTS sessions (
-    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    questionnaire_id UUID NOT NULL REFERENCES questionnaires(id) ON DELETE CASCADE,
-    token VARCHAR(100) UNIQUE NOT NULL,
-    expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
-    used BOOLEAN DEFAULT false,
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    used_at TIMESTAMP WITH TIME ZONE,
-    CONSTRAINT token_format CHECK (length(token) >= 20)
-);
-
--- Indexes for sessions
-CREATE UNIQUE INDEX idx_sessions_token ON sessions(token);
-CREATE INDEX idx_sessions_questionnaire ON sessions(questionnaire_id);
-CREATE INDEX idx_sessions_expires ON sessions(expires_at);
-CREATE INDEX idx_sessions_used ON sessions(used);
-
--- Responses table
+-- Таблица индивидуальных результатов прохождения одного опросника
+-- Хранит ответы пользователя на конкретный опросник
 CREATE TABLE IF NOT EXISTS responses (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
-    session_id UUID NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
-    started_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    submitted_at TIMESTAMP WITH TIME ZONE,
-    answers_json JSONB,
+    -- ID сессии пользователя (может быть NULL для старых записей)
+    session_id UUID,
+    -- JSON с ответами пользователя на вопросы
+    answers_json JSONB NOT NULL,
+    -- JSON с рассчитанными баллами или категориями
     score_json JSONB,
+    -- Текстовое резюме/вывод по результатам этого опросника
     summary_text TEXT,
-    status VARCHAR(50) DEFAULT 'started',
-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    updated_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT valid_status CHECK (status IN ('started', 'in_progress', 'completed', 'abandoned')),
-    CONSTRAINT valid_answers CHECK (answers_json IS NULL OR jsonb_typeof(answers_json) = 'object'),
-    CONSTRAINT valid_score CHECK (score_json IS NULL OR jsonb_typeof(score_json) = 'object')
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    CONSTRAINT responses_session_id_check CHECK (session_id IS NOT NULL OR session_id IS NULL)
 );
 
--- Indexes for responses
-CREATE INDEX idx_responses_session ON responses(session_id);
-CREATE INDEX idx_responses_status ON responses(status);
-CREATE INDEX idx_responses_submitted ON responses(submitted_at DESC NULLS LAST);
-CREATE INDEX idx_responses_created ON responses(created_at DESC);
+-- Индексы для производительности
+CREATE INDEX IF NOT EXISTS idx_questionnaires_title ON questionnaires(title);
+CREATE INDEX IF NOT EXISTS idx_responses_session_id ON responses(session_id);
+CREATE INDEX IF NOT EXISTS idx_responses_created_at ON responses(created_at);
 
--- Function to update updated_at timestamp
-CREATE OR REPLACE FUNCTION update_updated_at_column()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.updated_at = CURRENT_TIMESTAMP;
-    RETURN NEW;
-END;
-$$ language 'plpgsql';
+-- Комментарии к таблицам
+COMMENT ON TABLE questionnaires IS 'Шаблоны опросников с вопросами и правилами подсчета баллов';
+COMMENT ON TABLE responses IS 'Результаты прохождения отдельного опросника';
 
--- Triggers for updated_at
-CREATE TRIGGER update_questionnaires_updated_at BEFORE UPDATE ON questionnaires
-    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
+COMMENT ON COLUMN questionnaires.questions_json IS 'JSON массив вопросов с вариантами ответов';
+COMMENT ON COLUMN questionnaires.scoring_json IS 'JSON правила подсчета баллов и интерпретации';
+COMMENT ON COLUMN responses.answers_json IS 'JSON с ответами пользователя (ключ - id вопроса, значение - ответ)';
+COMMENT ON COLUMN responses.score_json IS 'JSON с вычисленными баллами по шкалам';
+COMMENT ON COLUMN responses.summary_text IS 'Человекочитаемое резюме результатов';
 
-CREATE TRIGGER update_responses_updated_at BEFORE UPDATE ON responses
-    FOR EACH ROW EXECUTE FUNCTION update_updated_at_column();
-
--- Function to mark session as used when response is submitted
-CREATE OR REPLACE FUNCTION mark_session_used()
-RETURNS TRIGGER AS $$
-BEGIN
-    IF NEW.submitted_at IS NOT NULL AND OLD.submitted_at IS NULL THEN
-        UPDATE sessions
-        SET used = true, used_at = NEW.submitted_at
-        WHERE id = NEW.session_id;
-    END IF;
-    RETURN NEW;
-END;
-$$ language 'plpgsql';
-
--- Trigger to mark session as used
-CREATE TRIGGER mark_session_used_trigger AFTER UPDATE ON responses
-    FOR EACH ROW EXECUTE FUNCTION mark_session_used();
-
--- Cleanup function for expired sessions
-CREATE OR REPLACE FUNCTION cleanup_expired_sessions()
-RETURNS void AS $$
-BEGIN
-    -- Mark expired sessions that haven't been used
-    UPDATE sessions
-    SET used = true
-    WHERE expires_at < CURRENT_TIMESTAMP
-    AND used = false;
-
-    -- Optionally delete old abandoned responses (older than 30 days)
-    -- DELETE FROM responses
-    -- WHERE status = 'abandoned'
-    -- AND created_at < CURRENT_TIMESTAMP - INTERVAL '30 days';
-END;
-$$ language 'plpgsql';
-
--- Create a view for admin dashboard
-CREATE OR REPLACE VIEW admin_responses_summary AS
-SELECT
-    r.id,
-    r.session_id,
-    q.title as questionnaire_title,
-    q.version as questionnaire_version,
-    r.started_at,
-    r.submitted_at,
-    r.status,
-    r.score_json,
-    r.summary_text,
-    CASE
-        WHEN r.submitted_at IS NOT NULL THEN
-            EXTRACT(EPOCH FROM (r.submitted_at - r.started_at)) / 60
-        ELSE NULL
-    END as duration_minutes
-FROM responses r
-JOIN sessions s ON r.session_id = s.id
-JOIN questionnaires q ON s.questionnaire_id = q.id
-ORDER BY r.created_at DESC;
-
--- Insert sample disclaimer text (can be customized)
-COMMENT ON TABLE questionnaires IS 'Stores questionnaire templates with questions and scoring rules';
-COMMENT ON TABLE sessions IS 'One-time access tokens for questionnaire completion, expires after 24 hours';
-COMMENT ON TABLE responses IS 'User responses to questionnaires with computed scores';
-
--- Grant necessary permissions (adjust if needed)
--- GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO app;
--- GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO app;
-
--- Success message
-DO $$
-BEGIN
-    RAISE NOTICE 'Database initialization completed successfully';
-END $$;

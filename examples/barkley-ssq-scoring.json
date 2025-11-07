@@ -1,0 +1,74 @@
+{
+  "scales": [
+    {
+      "id": "problematic_situations",
+      "label": "Проблемные ситуации",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 24],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "academic_situations",
+      "label": "Академические ситуации",
+      "questions": ["q1", "q2", "q3", "q4", "q12"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "non_academic_situations",
+      "label": "Внеучебные ситуации",
+      "questions": ["q5", "q6", "q7", "q8", "q9"],
+      "aggregation": "sum",
+      "thresholds": [2, 5, 10],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "compliance_situations",
+      "label": "Ситуации соблюдения правил",
+      "questions": ["q10", "q11"],
+      "aggregation": "sum",
+      "thresholds": [1, 2, 4],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [6, 12, 24],
+    "labels": ["Норма", "Легкие проблемы", "Умеренные проблемы", "Серьезные проблемы"]
+  },
+  "flags": [
+    {
+      "id": "high_problematic_situations",
+      "condition": "scale.problematic_situations >= 12",
+      "message": "Высокий уровень проблемного поведения в школьных ситуациях - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "academic_problems",
+      "condition": "scale.academic_situations >= 6",
+      "message": "Проблемы в академических ситуациях (уроки, задания) - требуется академическая поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "non_academic_problems",
+      "condition": "scale.non_academic_situations >= 5",
+      "message": "Проблемы во внеучебных ситуациях (перемена, обед) - требуется социальная поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "compliance_problems",
+      "condition": "scale.compliance_situations >= 2",
+      "message": "Проблемы с соблюдением правил и инструкций - рекомендуется поведенческая поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "severe_school_problems",
+      "condition": "scale.problematic_situations >= 24",
+      "message": "Очень серьезные проблемы поведения в школьных ситуациях - требуется немедленная консультация специалиста",
+      "severity": "high"
+    }
+  ]
+}
+

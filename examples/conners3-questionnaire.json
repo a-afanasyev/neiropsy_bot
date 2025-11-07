@@ -1,0 +1,333 @@
+{
+  "title": "Conners 3 - Оценка СДВГ и сопутствующих расстройств (6-18 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Часто не обращает внимания на детали или допускает небрежные ошибки в школьных заданиях, работе или других видах деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Часто испытывает трудности с удержанием внимания при выполнении заданий или игровой деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Часто не слушает, когда к нему обращаются напрямую",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Часто не следует инструкциям и не завершает школьные задания, домашние дела или обязанности на рабочем месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Часто испытывает трудности с организацией заданий и видов деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Часто избегает, не любит или неохотно выполняет задания, требующие длительных умственных усилий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Часто теряет вещи, необходимые для выполнения заданий или деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Часто легко отвлекается на посторонние стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Часто забывчив в повседневной деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Часто ерзает на стуле или не может усидеть на месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Часто покидает свое место в ситуациях, когда ожидается, что он останется на месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Часто бегает или карабкается в ситуациях, когда это неуместно",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Часто не может тихо играть или заниматься досуговой деятельностью",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Часто находится в постоянном движении, как будто «заведен мотором»",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Часто чрезмерно разговорчив",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Часто выпаливает ответы до того, как вопрос завершен",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Часто испытывает трудности с ожиданием своей очереди",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Часто перебивает других или вмешивается в их деятельность",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Часто испытывает трудности с выполнением заданий, требующих планирования и организации",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Часто демонстрирует проблемы с рабочей памятью (забывает инструкции, теряет мысль)",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q21",
+      "text": "Часто проявляет раздражительность или вспыльчивость",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q22",
+      "text": "Часто спорит со взрослыми",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q23",
+      "text": "Часто активно сопротивляется или отказывается выполнять требования или правила взрослых",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q24",
+      "text": "Часто испытывает трудности в общении со сверстниками",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q25",
+      "text": "Часто демонстрирует проблемы с обучением или академической успеваемостью",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+

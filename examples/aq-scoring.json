@@ -1,0 +1,70 @@
+{
+  "scales": [
+    {
+      "id": "social_skills",
+      "label": "Социальные навыки",
+      "questions": ["q1", "q11", "q14", "q16", "q17", "q20"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "attention_switching",
+      "label": "Переключение внимания",
+      "questions": ["q4", "q10", "q15"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 9],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "attention_to_detail",
+      "label": "Внимание к деталям",
+      "questions": ["q5", "q6", "q12", "q18"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "communication",
+      "label": "Коммуникация",
+      "questions": ["q7", "q19"],
+      "aggregation": "sum",
+      "thresholds": [2, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "imagination",
+      "label": "Воображение",
+      "questions": ["q3", "q8"],
+      "aggregation": "sum",
+      "thresholds": [2, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [17, 26, 32],
+    "labels": ["Низкий уровень аутистических черт", "Средний уровень", "Высокий уровень", "Очень высокий уровень"]
+  },
+  "flags": [
+    {
+      "id": "autistic_traits_low",
+      "condition": "overall_score >= 17 && overall_score < 26",
+      "message": "Низкий уровень аутистических черт",
+      "severity": "low"
+    },
+    {
+      "id": "autistic_traits_moderate",
+      "condition": "overall_score >= 26 && overall_score < 32",
+      "message": "Средний уровень аутистических черт - рекомендуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "autistic_traits_high",
+      "condition": "overall_score >= 32",
+      "message": "Высокий уровень аутистических черт - рекомендуется комплексная оценка",
+      "severity": "high"
+    }
+  ]
+}
+

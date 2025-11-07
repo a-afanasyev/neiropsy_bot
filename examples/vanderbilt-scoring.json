@@ -1,0 +1,100 @@
+{
+  "scales": [
+    {
+      "id": "inattention",
+      "label": "Невнимательность",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "hyperactivity_impulsivity",
+      "label": "Гиперактивность-Импульсивность",
+      "questions": ["q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "oppositional",
+      "label": "Оппозиционное поведение",
+      "questions": ["q19", "q20", "q21", "q22", "q23", "q24", "q25", "q26"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "peer_relations",
+      "label": "Социальные отношения",
+      "questions": ["q27"],
+      "aggregation": "sum",
+      "thresholds": [1, 2],
+      "labels": ["Низкий", "Средний", "Высокий"]
+    },
+    {
+      "id": "learning_problems",
+      "label": "Проблемы с обучением",
+      "questions": ["q28"],
+      "aggregation": "sum",
+      "thresholds": [1, 2],
+      "labels": ["Низкий", "Средний", "Высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [12, 24, 36],
+    "labels": ["Норма", "Легкий риск СДВГ", "Умеренный риск СДВГ", "Высокий риск СДВГ"]
+  },
+  "flags": [
+    {
+      "id": "adhd_inattention",
+      "condition": "scale.inattention >= 6",
+      "message": "Критерии невнимательности СДВГ выполнены (≥6 симптомов с оценкой ≥2)",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactivity",
+      "condition": "scale.hyperactivity_impulsivity >= 6",
+      "message": "Критерии гиперактивности-импульсивности СДВГ выполнены (≥6 симптомов с оценкой ≥2)",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_combined",
+      "condition": "scale.inattention >= 6 && scale.hyperactivity_impulsivity >= 6",
+      "message": "Комбинированный тип СДВГ - критерии невнимательности и гиперактивности-импульсивности выполнены",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_inattentive",
+      "condition": "scale.inattention >= 6 && scale.hyperactivity_impulsivity < 6",
+      "message": "Преимущественно невнимательный тип СДВГ",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactive",
+      "condition": "scale.inattention < 6 && scale.hyperactivity_impulsivity >= 6",
+      "message": "Преимущественно гиперактивно-импульсивный тип СДВГ",
+      "severity": "high"
+    },
+    {
+      "id": "oppositional_disorder",
+      "condition": "scale.oppositional >= 4",
+      "message": "Критерии оппозиционно-вызывающего расстройства выполнены (≥4 симптомов с оценкой ≥2) - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "peer_problems",
+      "condition": "scale.peer_relations >= 2",
+      "message": "Проблемы в отношениях со сверстниками - рекомендуется консультация",
+      "severity": "medium"
+    },
+    {
+      "id": "learning_concern",
+      "condition": "scale.learning_problems >= 2",
+      "message": "Проблемы с обучением - рекомендуется оценка академических навыков",
+      "severity": "medium"
+    }
+  ]
+}
+

@@ -1,0 +1,158 @@
+{
+  "title": "CAST (Childhood Autism Spectrum Test) - Тест детского аутистического спектра",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Ребенок любит быть с другими людьми?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Ребенок предпочитает делать что-то одинаковым способом снова и снова?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Ребенок может легко представить, что он/она является кем-то другим (например, героем)?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Ребенок часто замечает небольшие звуки, которые другие не замечают?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Ребенок обычно замечает номера автомобилей или похожую информацию?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Ребенок легко понимает, когда кто-то расстроен или злится?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Ребенок любит коллекционировать вещи (например, камни, марки)?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Ребенок легко находит способ, как привлечь внимание других?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Ребенок любит делать что-то снова и снова одинаковым способом?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Ребенок легко понимает, когда кто-то шутит?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Ребенок хорошо умеет общаться?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Ребенок часто замечает детали, которые другие не замечают?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Ребенок предпочитает пойти в библиотеку, а не на вечеринку?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Ребенок легко понимает правила игры?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Ребенок любит делать что-то спонтанно?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    }
+  ]
+}
+

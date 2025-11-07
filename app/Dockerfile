@@ -1,34 +1,35 @@
-FROM node:20-alpine AS builder
+# Используем официальный образ Node.js LTS
+FROM node:18-alpine
 
+# Устанавливаем рабочую директорию
 WORKDIR /app
 
-# Копируем package.json и устанавливаем зависимости
-# Используем npm install вместо npm ci, так как package-lock.json может отсутствовать
-COPY package*.json ./
-RUN npm install --omit=dev && npm cache clean --force
+# Копируем package.json (package-lock.json может отсутствовать)
+COPY package.json ./
 
-# Копируем исходный код
+# Устанавливаем ВСЕ зависимости (включая devDependencies для сборки)
+RUN npm install
+
+# Копируем исходный код и конфигурацию
+COPY app/src ./app/src
 COPY tsconfig.json ./
-COPY app ./app
 
-# Устанавливаем TypeScript и собираем проект
-RUN npm install -D typescript && \
-    npm run build && \
-    npm prune --production
+# Собираем TypeScript (outDir будет ./dist относительно корня)
+RUN npm run build
 
-FROM node:20-alpine
-
-WORKDIR /app
-
+# Создаем непривилегированного пользователя
 RUN addgroup -g 1001 -S nodejs && \
     adduser -S nodejs -u 1001
 
-COPY --from=builder --chown=nodejs:nodejs /app/node_modules ./node_modules
-COPY --from=builder --chown=nodejs:nodejs /app/dist ./dist
-COPY --from=builder --chown=nodejs:nodejs /app/package*.json ./
+# Меняем владельца файлов
+RUN chown -R nodejs:nodejs /app
 
+# Переключаемся на непривилегированного пользователя
 USER nodejs
 
-EXPOSE 8080
+# Открываем порт для API
+EXPOSE 8088
 
+# Запускаем приложение (файлы компилируются в dist/src/)
 CMD ["node", "dist/src/index.js"]
+

@@ -1,0 +1,108 @@
+{
+  "scales": [
+    {
+      "id": "organization_prioritization",
+      "label": "Организация, приоритизация и начало работы",
+      "questions": ["q1", "q2", "q3"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "focusing_attention",
+      "label": "Фокусировка, поддержание и переключение внимания",
+      "questions": ["q4", "q5", "q6", "q7"],
+      "aggregation": "sum",
+      "thresholds": [5, 10, 15],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "alertness_effort",
+      "label": "Регуляция бдительности, поддержание усилий и скорость обработки",
+      "questions": ["q8", "q9", "q10", "q11"],
+      "aggregation": "sum",
+      "thresholds": [5, 10, 15],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "frustration_emotions",
+      "label": "Управление фрустрацией и модуляция эмоций",
+      "questions": ["q12", "q13", "q14"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "working_memory",
+      "label": "Использование рабочей памяти и доступ к воспоминаниям",
+      "questions": ["q15", "q16", "q17"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "monitoring_self_regulation",
+      "label": "Мониторинг и саморегуляция действий",
+      "questions": ["q18", "q19", "q20"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [20, 40, 60],
+    "labels": ["Норма", "Легкие нарушения", "Умеренные нарушения", "Выраженные нарушения"]
+  },
+  "flags": [
+    {
+      "id": "organization_problems",
+      "condition": "scale.organization_prioritization >= 8",
+      "message": "Нарушения в организации, приоритизации и начале работы - требуется поддержка планирования",
+      "severity": "medium"
+    },
+    {
+      "id": "attention_problems",
+      "condition": "scale.focusing_attention >= 10",
+      "message": "Нарушения фокусировки и поддержания внимания - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "alertness_problems",
+      "condition": "scale.alertness_effort >= 10",
+      "message": "Нарушения регуляции бдительности и поддержания усилий - требуется поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "emotional_problems",
+      "condition": "scale.frustration_emotions >= 8",
+      "message": "Нарушения управления фрустрацией и эмоциями - рекомендуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "memory_problems",
+      "condition": "scale.working_memory >= 8",
+      "message": "Нарушения рабочей памяти - требуется поддержка памяти и обучения",
+      "severity": "medium"
+    },
+    {
+      "id": "self_regulation_problems",
+      "condition": "scale.monitoring_self_regulation >= 8",
+      "message": "Нарушения мониторинга и саморегуляции - требуется поведенческая поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "severe_executive_dysfunction",
+      "condition": "scale.organization_prioritization >= 8 && scale.focusing_attention >= 10 && scale.working_memory >= 8",
+      "message": "Выраженные нарушения исполнительных функций - требуется комплексная оценка и поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "multiple_domains",
+      "condition": "(scale.organization_prioritization >= 8 ? 1 : 0) + (scale.focusing_attention >= 10 ? 1 : 0) + (scale.alertness_effort >= 10 ? 1 : 0) + (scale.frustration_emotions >= 8 ? 1 : 0) + (scale.working_memory >= 8 ? 1 : 0) + (scale.monitoring_self_regulation >= 8 ? 1 : 0) >= 3",
+      "message": "Нарушения в нескольких областях исполнительных функций - требуется комплексная поддержка",
+      "severity": "high"
+    }
+  ]
+}
+

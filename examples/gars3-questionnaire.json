@@ -1,0 +1,188 @@
+{
+  "title": "GARS-3 (Gilliam Autism Rating Scale) - Оценка аутизма (3-22 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Ребенок избегает зрительного контакта",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Ребенок не реагирует на свое имя",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Ребенок не проявляет интереса к другим детям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Ребенок не делится интересами с другими",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Ребенок не использует жесты для общения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Ребенок не понимает простых инструкций",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Ребенок повторяет слова или фразы (эхолалия)",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Ребенок использует необычную интонацию или ритм речи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Ребенок демонстрирует стереотипные движения (машет руками, раскачивается)",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Ребенок имеет ограниченные или необычные интересы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Ребенок настаивает на соблюдении рутин и ритуалов",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Ребенок демонстрирует необычные реакции на сенсорные стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Ребенок демонстрирует ограниченную или отсутствующую символическую игру",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Ребенок демонстрирует трудности с пониманием эмоций других",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Ребенок демонстрирует трудности с адаптацией к изменениям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 }
+      ],
+      "required": true
+    }
+  ]
+}
+

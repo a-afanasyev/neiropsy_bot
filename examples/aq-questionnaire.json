@@ -1,0 +1,248 @@
+{
+  "title": "AQ (Autism Spectrum Quotient) - Коэффициент аутистического спектра",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Я предпочитаю делать что-то с другими людьми, а не в одиночестве",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Я предпочитаю делать что-то одинаковым способом снова и снова",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Если я пытаюсь представить что-то, мне легко создать мысленный образ",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Меня часто так поглощает что-то одно, что я теряю из виду другие вещи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Я часто замечаю небольшие звуки, которые другие не замечают",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Я обычно замечаю номера автомобилей или похожую информацию",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Другие люди часто говорят мне, что то, что я сказал, было грубо, хотя я думал, что это было вежливо",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Когда я читаю рассказ, мне легко представить, как могут выглядеть персонажи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Меня привлекают даты",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "В социальной группе я легко могу отслеживать разговоры нескольких разных людей",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Мне легко общаться с другими людьми",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Я склонен замечать детали, которые другие не замечают",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Я предпочитаю пойти в библиотеку, а не на вечеринку",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Мне легко понять намерения других людей",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Новые ситуации вызывают у меня беспокойство",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Мне нравится встречаться с новыми людьми",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Я хорош в социальных ситуациях",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Меня привлекают закономерности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Мне трудно понять, когда кто-то расстроен или злится",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью не согласен", "score": 0 },
+        { "value": 1, "label": "Не согласен", "score": 1 },
+        { "value": 2, "label": "Согласен", "score": 2 },
+        { "value": 3, "label": "Полностью согласен", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Мне нравится быть в компании других людей",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Полностью согласен", "score": 0 },
+        { "value": 1, "label": "Согласен", "score": 1 },
+        { "value": 2, "label": "Не согласен", "score": 2 },
+        { "value": 3, "label": "Полностью не согласен", "score": 3 }
+      ],
+      "required": true
+    }
+  ]
+}
+

@@ -1,0 +1,320 @@
+{
+  "title": "SNAP-IV (Swanson, Nolan, and Pelham Questionnaire) - Оценка СДВГ и ОВР (6-18 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Не обращает внимания на детали или делает небрежные ошибки в школьных заданиях",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Испытывает трудности с удержанием внимания при выполнении заданий или игровой деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Не слушает, когда к нему обращаются напрямую",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Не следует инструкциям и не завершает школьные задания или домашние дела",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Испытывает трудности с организацией заданий и видов деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Избегает, не любит или неохотно выполняет задания, требующие длительных умственных усилий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Теряет вещи, необходимые для выполнения заданий или деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Легко отвлекается на посторонние стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Забывчив в повседневной деятельности",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Ерзает на стуле или не может усидеть на месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Покидает свое место в ситуациях, когда ожидается, что он останется на месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Бегает или карабкается в ситуациях, когда это неуместно",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Не может тихо играть или заниматься досуговой деятельностью",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Находится в постоянном движении, как будто «заведен мотором»",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Чрезмерно разговорчив",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Выпаливает ответы до того, как вопрос завершен",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Испытывает трудности с ожиданием своей очереди",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Перебивает других или вмешивается в их деятельность",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Теряет самообладание",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Спорит со взрослыми",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q21",
+      "text": "Активно сопротивляется или отказывается выполнять требования или правила взрослых",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q22",
+      "text": "Намеренно раздражает других",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q23",
+      "text": "Обвиняет других в своих ошибках или плохом поведении",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q24",
+      "text": "Раздражителен или легко расстраивается",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q25",
+      "text": "Злится и обижается",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q26",
+      "text": "Злопамятен или мстителен",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Совсем не", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Довольно сильно", "score": 2 },
+        { "value": 3, "label": "Очень сильно", "score": 3 }
+      ],
+      "required": true
+    }
+  ]
+}
+

@@ -1,0 +1,208 @@
+{
+  "title": "SCQ (Social Communication Questionnaire) - Опросник социальной коммуникации",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Использует ли ребенок указательный жест для привлечения внимания?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Использует ли ребенок жесты для общения?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Использует ли ребенок зрительный контакт для общения?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Использует ли ребенок выражение лица для общения?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Имитирует ли ребенок действия других?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Играет ли ребенок в воображаемые игры?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Играет ли ребенок с другими детьми?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Проявляет ли ребенок интерес к другим детям?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Делится ли ребенок интересами с другими?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Понимает ли ребенок эмоции других?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Использует ли ребенок речь для общения?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Да", "score": 0 },
+        { "value": 1, "label": "Нет", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Использует ли ребенок эхолалию (повторяет слова)?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Использует ли ребенок стереотипные фразы?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Имеет ли ребенок ограниченные интересы?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Демонстрирует ли ребенок стереотипные движения?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Имеет ли ребенок необычные реакции на сенсорные стимулы?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Сопротивляется ли ребенок изменениям?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Имеет ли ребенок трудности с социальным взаимодействием?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Имеет ли ребенок трудности с пониманием социальных сигналов?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Имеет ли ребенок трудности с коммуникацией?",
+      "type": "yes-no",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Да", "score": 1 }
+      ],
+      "required": true
+    }
+  ]
+}
+

@@ -1,0 +1,76 @@
+{
+  "scales": [
+    {
+      "id": "inattention",
+      "label": "Невнимательность",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "hyperactivity_impulsivity",
+      "label": "Гиперактивность-Импульсивность",
+      "questions": ["q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18"],
+      "aggregation": "sum",
+      "thresholds": [6, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [12, 24, 36],
+    "labels": ["Норма", "Легкий риск СДВГ", "Умеренный риск СДВГ", "Высокий риск СДВГ"]
+  },
+  "flags": [
+    {
+      "id": "adhd_inattention",
+      "condition": "scale.inattention >= 6",
+      "message": "Критерии невнимательности СДВГ выполнены (≥6 симптомов с оценкой ≥2 за последние 6 месяцев)",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactivity",
+      "condition": "scale.hyperactivity_impulsivity >= 6",
+      "message": "Критерии гиперактивности-импульсивности СДВГ выполнены (≥6 симптомов с оценкой ≥2 за последние 6 месяцев)",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_combined",
+      "condition": "scale.inattention >= 6 && scale.hyperactivity_impulsivity >= 6",
+      "message": "Комбинированный тип СДВГ - критерии невнимательности и гиперактивности-импульсивности выполнены",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_inattentive",
+      "condition": "scale.inattention >= 6 && scale.hyperactivity_impulsivity < 6",
+      "message": "Преимущественно невнимательный тип СДВГ",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactive",
+      "condition": "scale.inattention < 6 && scale.hyperactivity_impulsivity >= 6",
+      "message": "Преимущественно гиперактивно-импульсивный тип СДВГ",
+      "severity": "high"
+    },
+    {
+      "id": "moderate_inattention",
+      "condition": "scale.inattention >= 12 && scale.inattention < 18",
+      "message": "Умеренно выраженные симптомы невнимательности",
+      "severity": "medium"
+    },
+    {
+      "id": "moderate_hyperactivity",
+      "condition": "scale.hyperactivity_impulsivity >= 12 && scale.hyperactivity_impulsivity < 18",
+      "message": "Умеренно выраженные симптомы гиперактивности-импульсивности",
+      "severity": "medium"
+    },
+    {
+      "id": "severe_adhd",
+      "condition": "scale.inattention >= 18 || scale.hyperactivity_impulsivity >= 18",
+      "message": "Выраженные симптомы СДВГ - требуется консультация специалиста",
+      "severity": "high"
+    }
+  ]
+}
+

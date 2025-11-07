@@ -1,0 +1,62 @@
+{
+  "scales": [
+    {
+      "id": "social_interaction",
+      "label": "Социальное взаимодействие",
+      "questions": ["q1", "q6", "q8", "q10", "q11", "q14"],
+      "aggregation": "sum",
+      "thresholds": [3, 5, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "restricted_repetitive",
+      "label": "Ограниченное и повторяющееся поведение",
+      "questions": ["q2", "q9"],
+      "aggregation": "sum",
+      "thresholds": [1, 2, 2],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "attention_detail",
+      "label": "Внимание к деталям",
+      "questions": ["q4", "q5", "q12"],
+      "aggregation": "sum",
+      "thresholds": [2, 3, 3],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "imagination",
+      "label": "Воображение",
+      "questions": ["q3"],
+      "aggregation": "sum",
+      "thresholds": [0, 1, 1],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [9, 12, 15],
+    "labels": ["Норма", "Легкий риск РАС", "Умеренный риск РАС", "Высокий риск РАС"]
+  },
+  "flags": [
+    {
+      "id": "asd_risk_low",
+      "condition": "overall_score >= 9 && overall_score < 12",
+      "message": "Легкий риск РАС - рекомендуется наблюдение",
+      "severity": "low"
+    },
+    {
+      "id": "asd_risk_moderate",
+      "condition": "overall_score >= 12 && overall_score < 15",
+      "message": "Умеренный риск РАС - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "asd_risk_high",
+      "condition": "overall_score >= 15",
+      "message": "Высокий риск РАС - требуется комплексная диагностика",
+      "severity": "high"
+    }
+  ]
+}
+

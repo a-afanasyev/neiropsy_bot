@@ -1,0 +1,173 @@
+{
+  "title": "ASSQ (Autism Spectrum Screening Questionnaire) - Опросник скрининга аутистического спектра",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Ребенок старый душой или ведет себя как маленький взрослый",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Ребенок избегает зрительного контакта",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Ребенок не реагирует на свое имя",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Ребенок не проявляет интереса к другим детям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Ребенок имеет ограниченные интересы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Ребенок демонстрирует стереотипные движения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Ребенок имеет необычную речь",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Ребенок не понимает социальные сигналы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Ребенок имеет трудности с пониманием эмоций других",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Ребенок имеет необычные реакции на сенсорные стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Ребенок сопротивляется изменениям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Ребенок имеет трудности с социальным взаимодействием",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Ребенок имеет трудности с коммуникацией",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Ребенок не использует жесты для общения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Ребенок имеет ограниченную или отсутствующую символическую игру",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет", "score": 0 },
+        { "value": 1, "label": "Немного", "score": 1 },
+        { "value": 2, "label": "Да", "score": 2 }
+      ],
+      "required": true
+    }
+  ]
+}
+

@@ -1,0 +1,66 @@
+{
+  "scales": [
+    {
+      "id": "social_affect",
+      "label": "Социальное взаимодействие и аффект",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q14", "q15"],
+      "aggregation": "sum",
+      "thresholds": [7, 14, 21],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "restricted_repetitive",
+      "label": "Ограниченное и повторяющееся поведение",
+      "questions": ["q8", "q9", "q10", "q11"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 9],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "communication",
+      "label": "Коммуникация",
+      "questions": ["q2", "q3", "q12", "q13"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 9],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [7, 14, 21],
+    "labels": ["Норма", "Легкий аутизм", "Умеренный аутизм", "Тяжелый аутизм"]
+  },
+  "flags": [
+    {
+      "id": "autism_mild",
+      "condition": "overall_score >= 7 && overall_score < 14",
+      "message": "Легкая степень аутизма - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "autism_moderate",
+      "condition": "overall_score >= 14 && overall_score < 21",
+      "message": "Умеренная степень аутизма - требуется комплексная оценка и поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "autism_severe",
+      "condition": "overall_score >= 21",
+      "message": "Тяжелая степень аутизма - требуется немедленная консультация специалиста и комплексная поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "social_communication_deficit",
+      "condition": "scale.social_affect >= 14 && scale.communication >= 6",
+      "message": "Выраженный дефицит социального взаимодействия и коммуникации - требуется специализированная поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "restricted_behavior",
+      "condition": "scale.restricted_repetitive >= 6",
+      "message": "Выраженное ограниченное и повторяющееся поведение - требуется поведенческая поддержка",
+      "severity": "medium"
+    }
+  ]
+}
+

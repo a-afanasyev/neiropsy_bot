@@ -1,0 +1,70 @@
+{
+  "scales": [
+    {
+      "id": "social_awareness",
+      "label": "Социальная осведомленность",
+      "questions": ["q1", "q2", "q4", "q5"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "social_cognition",
+      "label": "Социальное познание",
+      "questions": ["q5", "q10", "q12", "q15"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "social_communication",
+      "label": "Социальная коммуникация",
+      "questions": ["q6", "q11"],
+      "aggregation": "sum",
+      "thresholds": [2, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "social_motivation",
+      "label": "Социальная мотивация",
+      "questions": ["q3", "q9"],
+      "aggregation": "sum",
+      "thresholds": [2, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "restricted_repetitive",
+      "label": "Ограниченное и повторяющееся поведение",
+      "questions": ["q7", "q8", "q13", "q14"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [15, 30, 45],
+    "labels": ["Норма", "Легкие нарушения", "Умеренные нарушения", "Тяжелые нарушения"]
+  },
+  "flags": [
+    {
+      "id": "mild_impairment",
+      "condition": "overall_score >= 15 && overall_score < 30",
+      "message": "Легкие нарушения социальной отзывчивости - рекомендуется наблюдение",
+      "severity": "low"
+    },
+    {
+      "id": "moderate_impairment",
+      "condition": "overall_score >= 30 && overall_score < 45",
+      "message": "Умеренные нарушения социальной отзывчивости - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "severe_impairment",
+      "condition": "overall_score >= 45",
+      "message": "Тяжелые нарушения социальной отзывчивости - требуется комплексная оценка и поддержка",
+      "severity": "high"
+    }
+  ]
+}
+

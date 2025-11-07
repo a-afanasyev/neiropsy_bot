@@ -1,0 +1,54 @@
+{
+  "scales": [
+    {
+      "id": "social_interaction",
+      "label": "Социальное взаимодействие",
+      "questions": ["q2", "q3", "q4", "q8", "q9", "q12"],
+      "aggregation": "sum",
+      "thresholds": [6, 9, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "communication",
+      "label": "Коммуникация",
+      "questions": ["q7", "q13", "q14"],
+      "aggregation": "sum",
+      "thresholds": [3, 5, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "restricted_repetitive",
+      "label": "Ограниченное и повторяющееся поведение",
+      "questions": ["q1", "q5", "q6", "q10", "q11", "q15"],
+      "aggregation": "sum",
+      "thresholds": [6, 9, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [13, 19, 25],
+    "labels": ["Норма", "Легкий риск РАС", "Умеренный риск РАС", "Высокий риск РАС"]
+  },
+  "flags": [
+    {
+      "id": "asd_risk_low",
+      "condition": "overall_score >= 13 && overall_score < 19",
+      "message": "Легкий риск РАС - рекомендуется наблюдение",
+      "severity": "low"
+    },
+    {
+      "id": "asd_risk_moderate",
+      "condition": "overall_score >= 19 && overall_score < 25",
+      "message": "Умеренный риск РАС - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "asd_risk_high",
+      "condition": "overall_score >= 25",
+      "message": "Высокий риск РАС - требуется комплексная диагностика",
+      "severity": "high"
+    }
+  ]
+}
+

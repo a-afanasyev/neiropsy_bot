@@ -1,0 +1,333 @@
+{
+  "title": "WURS (Wender Utah Rating Scale) - Ретроспективная оценка СДВГ в детстве",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "В детстве я был импульсивным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "В детстве я был гиперактивным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "В детстве у меня были проблемы с концентрацией внимания",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "В детстве я был неорганизованным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "В детстве у меня были проблемы с поведением в школе",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "В детстве я был эмоционально нестабильным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "В детстве у меня были проблемы с выполнением домашних заданий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "В детстве я был невнимательным к деталям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "В детстве я был рассеянным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "В детстве у меня были проблемы с самоконтролем",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "В детстве я был неусидчивым",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "В детстве у меня были проблемы с терпением",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "В детстве я был неспособен долго сидеть на месте",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "В детстве у меня были проблемы с выполнением инструкций",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "В детстве я часто терял вещи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "В детстве у меня были проблемы с планированием",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "В детстве я был забывчивым",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "В детстве у меня были проблемы с управлением временем",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "В детстве я был легко отвлекаемым",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "В детстве у меня были проблемы с завершением задач",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q21",
+      "text": "В детстве я был беспокойным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q22",
+      "text": "В детстве у меня были проблемы с социальными навыками",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q23",
+      "text": "В детстве я был раздражительным",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q24",
+      "text": "В детстве у меня были проблемы с академической успеваемостью",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q25",
+      "text": "В детстве я был неспособен ждать своей очереди",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда или очень редко", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+

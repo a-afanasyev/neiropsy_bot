@@ -1,0 +1,110 @@
+{
+  "scales": [
+    {
+      "id": "inattention",
+      "label": "Невнимательность",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
+      "aggregation": "sum",
+      "thresholds": [9, 18, 27],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "hyperactivity",
+      "label": "Гиперактивность",
+      "questions": ["q10", "q11", "q12", "q13", "q14"],
+      "aggregation": "sum",
+      "thresholds": [5, 10, 15],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "impulsivity",
+      "label": "Импульсивность",
+      "questions": ["q15", "q16", "q17", "q18"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "executive_functioning",
+      "label": "Исполнительные функции",
+      "questions": ["q19", "q20"],
+      "aggregation": "sum",
+      "thresholds": [2, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "defiance",
+      "label": "Оппозиционное поведение",
+      "questions": ["q21", "q22", "q23"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 9],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "peer_relations",
+      "label": "Социальные отношения",
+      "questions": ["q24"],
+      "aggregation": "sum",
+      "thresholds": [1, 2, 3],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "learning_problems",
+      "label": "Проблемы с обучением",
+      "questions": ["q25"],
+      "aggregation": "sum",
+      "thresholds": [1, 2, 3],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [25, 50, 75],
+    "labels": ["Норма", "Легкий риск СДВГ", "Умеренный риск СДВГ", "Высокий риск СДВГ"]
+  },
+  "flags": [
+    {
+      "id": "high_inattention",
+      "condition": "scale.inattention > 27",
+      "message": "Выраженные проблемы с вниманием - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "high_hyperactivity",
+      "condition": "scale.hyperactivity > 15",
+      "message": "Выраженная гиперактивность - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "high_impulsivity",
+      "condition": "scale.impulsivity > 12",
+      "message": "Выраженная импульсивность - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "combined_adhd",
+      "condition": "scale.inattention > 18 && scale.hyperactivity > 10",
+      "message": "Комбинированный тип СДВГ - рекомендуется комплексная оценка",
+      "severity": "high"
+    },
+    {
+      "id": "executive_dysfunction",
+      "condition": "scale.executive_functioning > 4",
+      "message": "Нарушения исполнительных функций - требуется дополнительная оценка",
+      "severity": "medium"
+    },
+    {
+      "id": "defiance_concern",
+      "condition": "scale.defiance > 6",
+      "message": "Оппозиционное поведение - рекомендуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "learning_concern",
+      "condition": "scale.learning_problems > 2",
+      "message": "Проблемы с обучением - рекомендуется оценка академических навыков",
+      "severity": "medium"
+    }
+  ]
+}
+

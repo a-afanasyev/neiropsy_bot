@@ -1,18 +1,70 @@
 #!/bin/bash
 
-# Script to upload a questionnaire to the API
-# Usage: ./upload-questionnaire.sh
+# Скрипт для загрузки опросников через REST API
+# Использование: ./upload-questionnaire.sh <questionnaire-file> <scoring-file>
 
+# Настройки
 API_URL=${API_URL:-http://localhost:8088}
+TELEGRAM_ID=${ADMIN_TELEGRAM_ID:-123456789}
 
-echo "Uploading questionnaire to $API_URL..."
+# Проверка аргументов
+if [ $# -lt 2 ]; then
+    echo "Использование: $0 <questionnaire-file> <scoring-file>"
+    echo "Пример: $0 adhd-questionnaire.json adhd-scoring.json"
+    exit 1
+fi
 
-curl -X POST "$API_URL/questionnaires" \
-  -H "Content-Type: application/json" \
-  -d '{
-    "questionnaire": '"$(cat questionnaire-demo.json)"',
-    "scoring": '"$(cat scoring-demo.json)"'
-  }' | jq .
+QUESTIONNAIRE_FILE=$1
+SCORING_FILE=$2
 
+# Проверка существования файлов
+if [ ! -f "$QUESTIONNAIRE_FILE" ]; then
+    echo "Ошибка: файл $QUESTIONNAIRE_FILE не найден"
+    exit 1
+fi
+
+if [ ! -f "$SCORING_FILE" ]; then
+    echo "Ошибка: файл $SCORING_FILE не найден"
+    exit 1
+fi
+
+echo "📤 Загрузка опросника..."
+echo "📝 Questionnaire: $QUESTIONNAIRE_FILE"
+echo "📊 Scoring: $SCORING_FILE"
+echo "🌐 API URL: $API_URL"
+echo "👤 Telegram ID: $TELEGRAM_ID"
 echo ""
-echo "Done!"
+
+# Читаем содержимое файлов
+QUESTIONNAIRE_JSON=$(cat "$QUESTIONNAIRE_FILE")
+SCORING_JSON=$(cat "$SCORING_FILE")
+
+# Формируем JSON запрос
+REQUEST_JSON=$(jq -n \
+  --argjson questionnaire "$QUESTIONNAIRE_JSON" \
+  --argjson scoring "$SCORING_JSON" \
+  --argjson telegram_id "$TELEGRAM_ID" \
+  '{
+    telegram_id: $telegram_id,
+    questionnaire: $questionnaire,
+    scoring: $scoring
+  }')
+
+# Отправляем запрос
+RESPONSE=$(curl -s -X POST "$API_URL/questionnaires" \
+  -H "Content-Type: application/json" \
+  -H "X-Telegram-ID: $TELEGRAM_ID" \
+  -d "$REQUEST_JSON")
+
+# Проверяем результат
+if echo "$RESPONSE" | jq -e '.success' > /dev/null 2>&1; then
+    echo "✅ Опросник успешно загружен!"
+    echo ""
+    echo "$RESPONSE" | jq '.'
+else
+    echo "❌ Ошибка при загрузке опросника:"
+    echo ""
+    echo "$RESPONSE" | jq '.'
+    exit 1
+fi
+

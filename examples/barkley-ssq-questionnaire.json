@@ -1,0 +1,164 @@
+{
+  "title": "Barkley School Situations Questionnaire (SSQ) - Поведение в школьных ситуациях (5-18 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Во время индивидуальной работы в классе",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Во время групповой работы в классе",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Во время чтения вслух в классе",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Во время математики",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Во время перемены или свободного времени",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Во время обеда в столовой",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Во время перехода между классами или уроками",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Во время физкультуры",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Во время специальных занятий (музыка, искусство)",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Когда учитель делает замечание или говорит «нет»",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Во время ожидания своей очереди",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Во время выполнения заданий, требующих длительных умственных усилий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+

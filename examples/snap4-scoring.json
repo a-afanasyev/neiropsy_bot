@@ -1,0 +1,96 @@
+{
+  "scales": [
+    {
+      "id": "inattention",
+      "label": "Невнимательность",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9"],
+      "aggregation": "sum",
+      "thresholds": [13, 18, 23],
+      "labels": ["Незначительные симптомы", "Легкие симптомы", "Умеренные симптомы", "Тяжелые симптомы"]
+    },
+    {
+      "id": "hyperactivity_impulsivity",
+      "label": "Гиперактивность-Импульсивность",
+      "questions": ["q10", "q11", "q12", "q13", "q14", "q15", "q16", "q17", "q18"],
+      "aggregation": "sum",
+      "thresholds": [13, 18, 23],
+      "labels": ["Незначительные симптомы", "Легкие симптомы", "Умеренные симптомы", "Тяжелые симптомы"]
+    },
+    {
+      "id": "oppositional_defiant",
+      "label": "Оппозиционно-вызывающее расстройство",
+      "questions": ["q19", "q20", "q21", "q22", "q23", "q24", "q25", "q26"],
+      "aggregation": "sum",
+      "thresholds": [8, 14, 19],
+      "labels": ["Незначительные симптомы", "Легкие симптомы", "Умеренные симптомы", "Тяжелые симптомы"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [21, 36, 51],
+    "labels": ["Норма", "Легкие симптомы", "Умеренные симптомы", "Тяжелые симптомы"]
+  },
+  "flags": [
+    {
+      "id": "adhd_inattention_mild",
+      "condition": "scale.inattention >= 13 && scale.inattention < 18",
+      "message": "Легкие симптомы невнимательности",
+      "severity": "medium"
+    },
+    {
+      "id": "adhd_inattention_moderate",
+      "condition": "scale.inattention >= 18 && scale.inattention < 23",
+      "message": "Умеренные симптомы невнимательности - рекомендуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_inattention_severe",
+      "condition": "scale.inattention >= 23",
+      "message": "Тяжелые симптомы невнимательности - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactivity_mild",
+      "condition": "scale.hyperactivity_impulsivity >= 13 && scale.hyperactivity_impulsivity < 18",
+      "message": "Легкие симптомы гиперактивности-импульсивности",
+      "severity": "medium"
+    },
+    {
+      "id": "adhd_hyperactivity_moderate",
+      "condition": "scale.hyperactivity_impulsivity >= 18 && scale.hyperactivity_impulsivity < 23",
+      "message": "Умеренные симптомы гиперактивности-импульсивности - рекомендуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_hyperactivity_severe",
+      "condition": "scale.hyperactivity_impulsivity >= 23",
+      "message": "Тяжелые симптомы гиперактивности-импульсивности - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "adhd_combined",
+      "condition": "scale.inattention >= 18 && scale.hyperactivity_impulsivity >= 18",
+      "message": "Комбинированный тип СДВГ - умеренные или тяжелые симптомы в обеих областях",
+      "severity": "high"
+    },
+    {
+      "id": "odd_mild",
+      "condition": "scale.oppositional_defiant >= 8 && scale.oppositional_defiant < 14",
+      "message": "Легкие симптомы оппозиционно-вызывающего расстройства",
+      "severity": "medium"
+    },
+    {
+      "id": "odd_moderate",
+      "condition": "scale.oppositional_defiant >= 14 && scale.oppositional_defiant < 19",
+      "message": "Умеренные симптомы оппозиционно-вызывающего расстройства - рекомендуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "odd_severe",
+      "condition": "scale.oppositional_defiant >= 19",
+      "message": "Тяжелые симптомы оппозиционно-вызывающего расстройства - требуется консультация специалиста",
+      "severity": "high"
+    }
+  ]
+}
+

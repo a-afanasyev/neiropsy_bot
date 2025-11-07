@@ -1,0 +1,74 @@
+{
+  "scales": [
+    {
+      "id": "social_interaction",
+      "label": "Социальное взаимодействие",
+      "questions": ["q1", "q2", "q3"],
+      "aggregation": "sum",
+      "thresholds": [6, 9, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "communication",
+      "label": "Коммуникация",
+      "questions": ["q11", "q12"],
+      "aggregation": "sum",
+      "thresholds": [4, 6, 8],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "sensory_motor",
+      "label": "Сенсорно-моторные реакции",
+      "questions": ["q4", "q5", "q7", "q8", "q9", "q13"],
+      "aggregation": "sum",
+      "thresholds": [8, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "behavioral",
+      "label": "Поведенческие особенности",
+      "questions": ["q6", "q10", "q14", "q15"],
+      "aggregation": "sum",
+      "thresholds": [5, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [15, 30, 45],
+    "labels": ["Норма", "Легкий аутизм", "Умеренный аутизм", "Тяжелый аутизм"]
+  },
+  "flags": [
+    {
+      "id": "mild_autism",
+      "condition": "overall_score >= 15 && overall_score < 30",
+      "message": "Легкая степень аутизма - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "moderate_autism",
+      "condition": "overall_score >= 30 && overall_score < 45",
+      "message": "Умеренная степень аутизма - требуется комплексная оценка и поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "severe_autism",
+      "condition": "overall_score >= 45",
+      "message": "Тяжелая степень аутизма - требуется немедленная консультация специалиста и комплексная поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "social_communication_problems",
+      "condition": "scale.social_interaction >= 9 && scale.communication >= 6",
+      "message": "Выраженные проблемы в социальном взаимодействии и коммуникации - требуется специализированная поддержка",
+      "severity": "high"
+    },
+    {
+      "id": "sensory_problems",
+      "condition": "scale.sensory_motor >= 12",
+      "message": "Выраженные сенсорно-моторные проблемы - требуется сенсорная интеграция",
+      "severity": "medium"
+    }
+  ]
+}
+

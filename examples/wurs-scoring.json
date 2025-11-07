@@ -1,0 +1,90 @@
+{
+  "scales": [
+    {
+      "id": "attention",
+      "label": "Дефицит внимания",
+      "questions": ["q3", "q8", "q9", "q15", "q17", "q19", "q20"],
+      "aggregation": "sum",
+      "thresholds": [10, 15, 20],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "hyperactivity",
+      "label": "Гиперактивность",
+      "questions": ["q2", "q11", "q13", "q21"],
+      "aggregation": "sum",
+      "thresholds": [6, 10, 14],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "impulsivity",
+      "label": "Импульсивность",
+      "questions": ["q1", "q10", "q12", "q25"],
+      "aggregation": "sum",
+      "thresholds": [6, 10, 14],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "executive_function",
+      "label": "Исполнительные функции",
+      "questions": ["q4", "q16", "q18"],
+      "aggregation": "sum",
+      "thresholds": [4, 8, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "emotional",
+      "label": "Эмоциональная регуляция",
+      "questions": ["q6", "q23"],
+      "aggregation": "sum",
+      "thresholds": [3, 5, 7],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "academic_social",
+      "label": "Академические и социальные проблемы",
+      "questions": ["q5", "q7", "q14", "q22", "q24"],
+      "aggregation": "sum",
+      "thresholds": [8, 12, 18],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [30, 50, 70],
+    "labels": ["Низкий риск СДВГ в детстве", "Средний риск СДВГ в детстве", "Высокий риск СДВГ в детстве", "Очень высокий риск СДВГ в детстве"]
+  },
+  "flags": [
+    {
+      "id": "adhd_childhood_low",
+      "condition": "overall_score >= 30 && overall_score < 50",
+      "message": "Низкий риск наличия СДВГ в детстве - рекомендуется дополнительная оценка",
+      "severity": "low"
+    },
+    {
+      "id": "adhd_childhood_moderate",
+      "condition": "overall_score >= 50 && overall_score < 70",
+      "message": "Средний риск наличия СДВГ в детстве - рекомендуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "adhd_childhood_high",
+      "condition": "overall_score >= 70",
+      "message": "Высокий риск наличия СДВГ в детстве - требуется комплексная диагностика",
+      "severity": "high"
+    },
+    {
+      "id": "attention_deficit",
+      "condition": "scale.attention >= 15",
+      "message": "Выраженный дефицит внимания в детстве - требуется оценка текущих симптомов",
+      "severity": "high"
+    },
+    {
+      "id": "hyperactivity_impulsivity",
+      "condition": "scale.hyperactivity >= 10 && scale.impulsivity >= 10",
+      "message": "Выраженная гиперактивность и импульсивность в детстве - требуется оценка текущих симптомов",
+      "severity": "high"
+    }
+  ]
+}
+

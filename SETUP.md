@@ -1,158 +1,476 @@
-# Инструкция по настройке бота
+# Инструкция по установке и настройке
 
-## Шаг 1: Создание Telegram бота
+Детальная инструкция по развертыванию neiropsy_bot.
 
-### 1.1. Получить токен бота
+## 📋 Содержание
 
-1. Откройте Telegram и найдите **@BotFather**
+1. [Предварительные требования](#предварительные-требования)
+2. [Получение Telegram Bot Token](#получение-telegram-bot-token)
+3. [Установка через Docker Compose](#установка-через-docker-compose)
+4. [Локальная установка](#локальная-установка)
+5. [Настройка переменных окружения](#настройка-переменных-окружения)
+6. [Первый запуск](#первый-запуск)
+7. [Загрузка опросников](#загрузка-опросников)
+8. [Проверка работоспособности](#проверка-работоспособности)
+9. [Troubleshooting](#troubleshooting)
+
+## Предварительные требования
+
+### Для Docker Compose
+
+- Docker >= 20.10
+- Docker Compose >= 2.0
+- 2 GB свободной оперативной памяти
+- 5 GB свободного места на диске
+
+### Для локальной установки
+
+- Node.js >= 18.0.0
+- npm >= 9.0.0
+- PostgreSQL >= 12
+- Redis >= 6 (опционально)
+
+## Получение Telegram Bot Token
+
+1. Откройте Telegram и найдите бота [@BotFather](https://t.me/BotFather)
+
 2. Отправьте команду `/newbot`
-3. Введите имя вашего бота (например: "Neiropsy Survey Bot")
-4. Введите username бота (должен заканчиваться на `bot`, например: `neiropsy_survey_bot`)
-5. BotFather пришлет вам токен в формате:
-   ```
-   1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ
-   ```
-6. **Скопируйте этот токен!**
 
-### 1.2. Узнать свой Telegram ID
+3. Следуйте инструкциям:
+   - Введите название бота (например: "Neiropsy Questionnaire Bot")
+   - Введите username бота (должен заканчиваться на `bot`, например: `neiropsy_test_bot`)
 
-1. Найдите в Telegram бота **@userinfobot**
-2. Нажмите "Start" или отправьте `/start`
-3. Бот пришлет информацию о вас, включая ID:
-   ```
-   Id: 123456789
-   ```
-4. **Скопируйте это число!**
+4. Сохраните полученный токен (формат: `123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11`)
 
-## Шаг 2: Настройка файла .env
+5. Узнайте свой Telegram ID:
+   - Найдите бота [@userinfobot](https://t.me/userinfobot)
+   - Отправьте `/start`
+   - Скопируйте ваш ID (число)
 
-Откройте файл `.env` в корне проекта и заполните:
+## Установка через Docker Compose
+
+### Шаг 1: Клонирование репозитория
 
 ```bash
-# 1. ВСТАВЬТЕ ТОКЕН ОТ @BotFather
-TELEGRAM_BOT_TOKEN=1234567890:ABCdefGHIjklMNOpqrSTUvwxYZ
-
-# 2. ВСТАВЬТЕ ВАШ TELEGRAM ID (от @userinfobot)
-ADMIN_TG_ID=123456789
-
-# 3. ВСТАВЬТЕ ССЫЛКУ НА ВАШЕГО БОТА
-# Используйте username, который вы создали у @BotFather
-PUBLIC_BOT_LINK=https://t.me/neiropsy_survey_bot
+git clone https://github.com/your-org/neiropsy_bot.git
+cd neiropsy_bot
 ```
 
-### Пример заполненного .env файла:
+### Шаг 2: Создание .env файла
 
 ```bash
-# Database
-DATABASE_URL=postgres://app:app@localhost:5439/app
+cp .env.example .env
+```
 
-# Telegram Bot
-TELEGRAM_BOT_TOKEN=7123456789:AAHdqTcvCH1vGWJxfSeofSAs0K5PALDsaw
-ADMIN_TG_ID=987654321
+Отредактируйте `.env`:
+
+```env
+# Telegram Configuration
+TELEGRAM_BOT_TOKEN=ВАШ_ТОКЕН_БОТА
+ADMIN_TELEGRAM_ID=ВАШ_TELEGRAM_ID
+
+# Database
+DATABASE_URL=postgres://neiropsy:neiropsy_password@db:5432/neiropsy_db
+
+# Redis (для production рекомендуется)
+REDIS_URL=redis://redis:6379/0
 
 # Server
-NODE_ENV=development
 PORT=8088
-PUBLIC_BOT_LINK=https://t.me/my_neiropsy_bot
-
-# Session
-SESSION_EXPIRY_HOURS=24
+NODE_ENV=production
+LOG_LEVEL=info
 ```
 
-## Шаг 3: Запуск бота
-
-### С Docker Compose (рекомендуется):
+### Шаг 3: Запуск контейнеров
 
 ```bash
-# Запустить все сервисы
+# Запустить в фоновом режиме
 docker-compose up -d
 
-# Проверить логи
+# Посмотреть логи
 docker-compose logs -f app
 ```
 
-### Локально (для разработки):
+### Шаг 4: Проверка статуса
 
 ```bash
-# Установить зависимости
+# Проверить что все контейнеры запущены
+docker-compose ps
+
+# Должны быть running: neiropsy_bot, neiropsy_db, neiropsy_redis
+```
+
+## Локальная установка
+
+### Шаг 1: Установка PostgreSQL
+
+#### macOS (Homebrew)
+
+```bash
+brew install postgresql@15
+brew services start postgresql@15
+```
+
+#### Ubuntu/Debian
+
+```bash
+sudo apt update
+sudo apt install postgresql-15
+sudo systemctl start postgresql
+```
+
+#### Создание базы данных
+
+```bash
+sudo -u postgres psql
+
+CREATE DATABASE neiropsy_db;
+CREATE USER neiropsy WITH PASSWORD 'neiropsy_password';
+GRANT ALL PRIVILEGES ON DATABASE neiropsy_db TO neiropsy;
+\q
+```
+
+### Шаг 2: Установка Redis (опционально)
+
+#### macOS
+
+```bash
+brew install redis
+brew services start redis
+```
+
+#### Ubuntu/Debian
+
+```bash
+sudo apt install redis-server
+sudo systemctl start redis
+```
+
+### Шаг 3: Установка зависимостей Node.js
+
+```bash
 npm install
-
-# Запустить PostgreSQL
-docker-compose up -d db
-
-# Запустить приложение
-npm run dev
 ```
 
-## Шаг 4: Проверка работы
-
-1. Найдите вашего бота в Telegram (по username)
-2. Отправьте команду `/help`
-3. Если бот отвечает - всё настроено правильно!
-
-## Шаг 5: Загрузка тестового опросника
+### Шаг 4: Настройка .env
 
 ```bash
-cd examples
-./upload-questionnaire.sh
+cp .env.example .env
 ```
 
-Скрипт вернет ID опросника, например:
+Отредактируйте `.env` для локальной разработки:
+
+```env
+TELEGRAM_BOT_TOKEN=ВАШ_ТОКЕН_БОТА
+ADMIN_TELEGRAM_ID=ВАШ_TELEGRAM_ID
+DATABASE_URL=postgres://neiropsy:neiropsy_password@localhost:5432/neiropsy_db
+REDIS_URL=redis://localhost:6379/0
+PORT=8088
+NODE_ENV=development
+LOG_LEVEL=debug
+```
+
+### Шаг 5: Выполнение миграций
+
+```bash
+# Выполнить SQL миграции вручную
+psql -U neiropsy -d neiropsy_db -f app/migrations/001_init.sql
+psql -U neiropsy -d neiropsy_db -f app/migrations/002_batch_tables.sql
+psql -U neiropsy -d neiropsy_db -f app/migrations/003_batch_sessions.sql
+psql -U neiropsy -d neiropsy_db -f app/migrations/004_batch_responses.sql
+psql -U neiropsy -d neiropsy_db -f app/migrations/005_batch_reports.sql
+psql -U neiropsy -d neiropsy_db -f app/migrations/006_indexes_and_constraints.sql
+```
+
+### Шаг 6: Сборка TypeScript
+
+```bash
+npm run build
+```
+
+### Шаг 7: Запуск приложения
+
+```bash
+# Development режим (с hot reload)
+npm run dev
+
+# Production режим
+npm start
+```
+
+## Настройка переменных окружения
+
+### Обязательные параметры
+
+| Переменная | Описание | Пример |
+|------------|----------|--------|
+| `TELEGRAM_BOT_TOKEN` | Токен бота от @BotFather | `123456:ABC-DEF...` |
+| `ADMIN_TELEGRAM_ID` | Ваш Telegram ID | `123456789` |
+| `DATABASE_URL` | URL PostgreSQL | `postgres://user:pass@host:5432/db` |
+
+### Опциональные параметры
+
+| Переменная | Описание | По умолчанию |
+|------------|----------|--------------|
+| `REDIS_URL` | URL Redis (рекомендуется) | - |
+| `PORT` | Порт REST API | `8088` |
+| `NODE_ENV` | Окружение | `development` |
+| `LOG_LEVEL` | Уровень логов | `info` |
+
+## Первый запуск
+
+### 1. Проверка подключения к базе данных
+
+```bash
+# Для Docker
+docker-compose exec db psql -U neiropsy -d neiropsy_db -c "SELECT NOW();"
+
+# Для локальной установки
+psql -U neiropsy -d neiropsy_db -c "SELECT NOW();"
+```
+
+### 2. Проверка работы API
+
+```bash
+curl http://localhost:8088/health
+```
+
+Ожидаемый ответ:
+
 ```json
 {
-  "success": true,
-  "questionnaire": {
-    "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
-  }
+  "status": "ok",
+  "timestamp": "2025-11-06T...",
+  "uptime": 123.45
 }
 ```
 
-## Шаг 6: Создание первой сессии
+### 3. Проверка Telegram бота
 
-В Telegram отправьте боту:
+1. Найдите вашего бота в Telegram (по username)
+2. Отправьте `/start`
+3. Вы должны увидеть главное меню (так как вы администратор)
+
+## Загрузка опросников
+
+### Через bash скрипт
+
+```bash
+cd examples
+
+# Сделать скрипт исполняемым
+chmod +x upload-questionnaire.sh
+
+# Загрузить СДВГ опросник
+export API_URL=http://localhost:8088
+export ADMIN_TELEGRAM_ID=ваш_id
+./upload-questionnaire.sh adhd-questionnaire.json adhd-scoring.json
+
+# Загрузить M-CHAT опросник
+./upload-questionnaire.sh mchat-questionnaire.json mchat-scoring.json
 ```
-/newsession a1b2c3d4-e5f6-7890-abcd-ef1234567890
+
+### Через curl
+
+```bash
+curl -X POST http://localhost:8088/questionnaires \
+  -H "Content-Type: application/json" \
+  -H "X-Telegram-ID: ВАШ_TELEGRAM_ID" \
+  -d @- << 'EOF'
+{
+  "telegram_id": ВАШ_TELEGRAM_ID,
+  "questionnaire": {
+    "title": "Тестовый опросник",
+    "version": "1.0",
+    "language": "ru",
+    "questions": [...]
+  },
+  "scoring": {
+    "scales": [...],
+    "overall": {...}
+  }
+}
+EOF
 ```
 
-Бот вернет одноразовую ссылку для прохождения опроса.
+## Проверка работоспособности
 
-## Устранение проблем
+### 1. Создание батча через бота
 
-### Бот не отвечает:
+1. Откройте бота в Telegram
+2. Нажмите "Создать батч"
+3. Выберите опросники
+4. Получите ссылку
 
-1. Проверьте, что TELEGRAM_BOT_TOKEN правильный
-2. Проверьте логи: `docker-compose logs -f app`
-3. Убедитесь, что бот запущен: `docker-compose ps`
+### 2. Прохождение опроса
 
-### "Эта команда доступна только администратору":
+1. Откройте ссылку в другом аккаунте Telegram (или браузере)
+2. Нажмите "Начать"
+3. Ответьте на вопросы
+4. Проверьте, что администратор получил уведомление
 
-1. Проверьте, что ADMIN_TG_ID совпадает с вашим ID
-2. Перезапустите бота: `docker-compose restart app`
+### 3. Просмотр отчета
 
-### База данных не подключается:
+1. Нажмите "Посмотреть отчет" в уведомлении
+2. Проверьте корректность данных
 
-1. Проверьте, что PostgreSQL запущен: `docker-compose ps db`
-2. Проверьте DATABASE_URL в .env
-3. Проверьте логи БД: `docker-compose logs -f db`
+### 4. Экспорт данных
 
-## Дополнительные команды бота
+1. Нажмите "Выгрузить JSON" или "Выгрузить CSV"
+2. Проверьте полученный файл
 
-Для администратора:
-- `/help` - справка
-- `/newsession <questionnaire_id>` - создать одноразовую ссылку
-- `/listq` - список опросников
-- `/listr <questionnaire_id>` - список ответов
+## Troubleshooting
 
-## Безопасность
+### Проблема: Бот не отвечает
 
-⚠️ **ВАЖНО:**
-- Не публикуйте файл `.env` в git (он уже в .gitignore)
-- Не делитесь TELEGRAM_BOT_TOKEN ни с кем
-- Только пользователь с ADMIN_TG_ID может управлять ботом
-- Храните токен в безопасности
+**Решение:**
 
-## Полезные ссылки
+```bash
+# Проверьте логи
+docker-compose logs -f app
 
-- Документация Telegram Bots: https://core.telegram.org/bots
-- @BotFather: https://t.me/botfather
-- @userinfobot: https://t.me/userinfobot
+# Проверьте токен бота
+echo $TELEGRAM_BOT_TOKEN
+
+# Перезапустите контейнер
+docker-compose restart app
+```
+
+### Проблема: Ошибка подключения к БД
+
+**Решение:**
+
+```bash
+# Проверьте статус PostgreSQL
+docker-compose ps db
+
+# Проверьте логи БД
+docker-compose logs db
+
+# Проверьте подключение
+docker-compose exec app psql $DATABASE_URL -c "SELECT 1;"
+```
+
+### Проблема: Не сохраняется прогресс
+
+**Причина:** Redis не настроен или недоступен
+
+**Решение:**
+
+```bash
+# Проверьте Redis
+docker-compose ps redis
+
+# Если не используете Redis, прогресс сохраняется в памяти
+# При перезапуске приложения незавершенные сессии будут потеряны
+```
+
+### Проблема: Ошибка при загрузке опросника
+
+**Причина:** Неверный Telegram ID или формат JSON
+
+**Решение:**
+
+```bash
+# Проверьте формат JSON
+cat adhd-questionnaire.json | jq .
+
+# Проверьте что ваш ID совпадает с ADMIN_TELEGRAM_ID
+echo $ADMIN_TELEGRAM_ID
+```
+
+### Проблема: Порт 8088 занят
+
+**Решение:**
+
+```bash
+# Измените порт в .env
+PORT=8089
+
+# Перезапустите
+docker-compose down
+docker-compose up -d
+```
+
+## Обновление приложения
+
+### Docker Compose
+
+```bash
+# Остановить контейнеры
+docker-compose down
+
+# Получить обновления
+git pull
+
+# Пересобрать образы
+docker-compose build
+
+# Запустить с новой версией
+docker-compose up -d
+```
+
+### Локальная установка
+
+```bash
+# Получить обновления
+git pull
+
+# Установить новые зависимости
+npm install
+
+# Выполнить новые миграции (если есть)
+psql -U neiropsy -d neiropsy_db -f app/migrations/XXX_new_migration.sql
+
+# Пересобрать
+npm run build
+
+# Перезапустить
+npm start
+```
+
+## Мониторинг
+
+### Логи приложения
+
+```bash
+# Docker
+docker-compose logs -f app
+
+# PM2 (если используется)
+pm2 logs neiropsy_bot
+```
+
+### Метрики базы данных
+
+```bash
+docker-compose exec db psql -U neiropsy -d neiropsy_db
+
+-- Количество батчей
+SELECT COUNT(*) FROM questionnaire_batches;
+
+-- Количество сессий
+SELECT COUNT(*), completed FROM batch_sessions GROUP BY completed;
+
+-- Количество отчетов
+SELECT COUNT(*) FROM batch_reports;
+```
+
+## Резервное копирование
+
+### Backup базы данных
+
+```bash
+# Создать backup
+docker-compose exec db pg_dump -U neiropsy neiropsy_db > backup_$(date +%Y%m%d).sql
+
+# Восстановить из backup
+docker-compose exec -T db psql -U neiropsy neiropsy_db < backup_20251106.sql
+```
+
+---
+
+**Готово!** Теперь ваш neiropsy_bot полностью настроен и готов к использованию.
+
+При возникновении проблем создайте issue в GitHub или обратитесь к администратору проекта.
+

@@ -1,0 +1,188 @@
+{
+  "title": "CARS-2 (Childhood Autism Rating Scale) - Оценка детского аутизма (2+ лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Взаимоотношения с людьми",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Имитация",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Эмоциональные реакции",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Владение телом",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Использование предметов",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Адаптация к изменениям",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Зрительные реакции",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Слуховые реакции",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Реакции, связанные со вкусом, запахом и осязанием",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Страх и тревога",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Вербальная коммуникация",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Невербальная коммуникация",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Уровень активности",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Интеллектуальное функционирование",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Общее впечатление",
+      "type": "scale",
+      "options": [
+        { "value": 1, "label": "Отсутствие отклонений", "score": 1 },
+        { "value": 2, "label": "Легкие отклонения", "score": 2 },
+        { "value": 3, "label": "Умеренные отклонения", "score": 3 },
+        { "value": 4, "label": "Тяжелые отклонения", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+

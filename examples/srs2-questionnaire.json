@@ -1,0 +1,188 @@
+{
+  "title": "SRS-2 (Social Responsiveness Scale) - Шкала социальной отзывчивости",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Избегает зрительного контакта",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Не реагирует на свое имя",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Не проявляет интереса к другим детям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Не понимает социальные сигналы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Имеет трудности с пониманием эмоций других",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Не использует жесты для общения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Имеет ограниченные интересы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Демонстрирует стереотипные движения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Имеет трудности с социальным взаимодействием",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Не понимает шутки или сарказм",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Имеет трудности с поддержанием разговора",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Не проявляет эмпатию",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Имеет необычные реакции на сенсорные стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Имеет трудности с адаптацией к изменениям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Не понимает социальные правила",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 },
+        { "value": 3, "label": "Почти всегда", "score": 3 }
+      ],
+      "required": true
+    }
+  ]
+}
+

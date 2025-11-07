@@ -1,0 +1,216 @@
+{
+  "title": "Barkley Home Situations Questionnaire (HSQ) - Поведение в домашних ситуациях (5-18 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Когда ребенок играет один",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Когда ребенок играет с другими детьми",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Когда нужно делать домашние задания",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Когда нужно убирать игрушки или вещи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Когда нужно одеваться или раздеваться",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Когда нужно мыться или принимать ванну",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Когда нужно есть",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Когда нужно ложиться спать",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Когда родители разговаривают по телефону",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Когда родители заняты домашними делами",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Когда приходят гости",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Когда нужно идти в магазин или по делам",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Когда нужно сидеть спокойно (например, в ресторане, церкви)",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Когда нужно ждать своей очереди",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Когда родители говорят «нет» или запрещают что-то",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Когда нужно переходить от одного занятия к другому",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нет проблем", "score": 0 },
+        { "value": 1, "label": "Легкие проблемы", "score": 1 },
+        { "value": 2, "label": "Умеренные проблемы", "score": 2 },
+        { "value": 3, "label": "Серьезные проблемы", "score": 3 },
+        { "value": 4, "label": "Очень серьезные проблемы", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+

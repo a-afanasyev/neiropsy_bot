@@ -1,0 +1,308 @@
+{
+  "title": "ADI-R (Autism Diagnostic Interview - Revised) - Диагностическое интервью по аутизму",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Прямой зрительный контакт",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальный", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Социальная улыбка",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Реакция на других детей",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Использование других людей как инструмента",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Предложение и разделение удовольствия",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Использование жестов",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Использование указательного жеста",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Спонтанная имитация",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Использование выражения лица для общения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Качество социального взаимодействия",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Интерес к сверстникам",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальный", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Игра со сверстниками",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Реакция на подход других",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Эмоциональная отзывчивость",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Использование речи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Стереотипные высказывания",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствуют", "score": 0 },
+        { "value": 1, "label": "Легкие", "score": 1 },
+        { "value": 2, "label": "Умеренные", "score": 2 },
+        { "value": 3, "label": "Тяжелые", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Эхолалия",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствует", "score": 0 },
+        { "value": 1, "label": "Легкая", "score": 1 },
+        { "value": 2, "label": "Умеренная", "score": 2 },
+        { "value": 3, "label": "Тяжелая", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Социальное использование речи",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальное", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Игра с воображением",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Имитационная игра",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Нормальная", "score": 0 },
+        { "value": 1, "label": "Легкие отклонения", "score": 1 },
+        { "value": 2, "label": "Умеренные отклонения", "score": 2 },
+        { "value": 3, "label": "Тяжелые отклонения", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q21",
+      "text": "Стереотипные движения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствуют", "score": 0 },
+        { "value": 1, "label": "Легкие", "score": 1 },
+        { "value": 2, "label": "Умеренные", "score": 2 },
+        { "value": 3, "label": "Тяжелые", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q22",
+      "text": "Стереотипное использование предметов",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствует", "score": 0 },
+        { "value": 1, "label": "Легкое", "score": 1 },
+        { "value": 2, "label": "Умеренное", "score": 2 },
+        { "value": 3, "label": "Тяжелое", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q23",
+      "text": "Ограниченные интересы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствуют", "score": 0 },
+        { "value": 1, "label": "Легкие", "score": 1 },
+        { "value": 2, "label": "Умеренные", "score": 2 },
+        { "value": 3, "label": "Тяжелые", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q24",
+      "text": "Сопротивление изменениям",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствует", "score": 0 },
+        { "value": 1, "label": "Легкое", "score": 1 },
+        { "value": 2, "label": "Умеренное", "score": 2 },
+        { "value": 3, "label": "Тяжелое", "score": 3 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q25",
+      "text": "Необычные реакции на сенсорные стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Отсутствуют", "score": 0 },
+        { "value": 1, "label": "Легкие", "score": 1 },
+        { "value": 2, "label": "Умеренные", "score": 2 },
+        { "value": 3, "label": "Тяжелые", "score": 3 }
+      ],
+      "required": true
+    }
+  ]
+}
+

@@ -1,0 +1,94 @@
+{
+  "scales": [
+    {
+      "id": "inhibit",
+      "label": "Ингибирование",
+      "questions": ["q4", "q10"],
+      "aggregation": "sum",
+      "thresholds": [2, 3, 4],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "shift",
+      "label": "Переключение",
+      "questions": ["q8", "q14"],
+      "aggregation": "sum",
+      "thresholds": [2, 3, 4],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "emotional_control",
+      "label": "Эмоциональный контроль",
+      "questions": ["q5"],
+      "aggregation": "sum",
+      "thresholds": [1, 1, 2],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "initiate",
+      "label": "Инициация",
+      "questions": ["q6"],
+      "aggregation": "sum",
+      "thresholds": [1, 1, 2],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "working_memory",
+      "label": "Рабочая память",
+      "questions": ["q2", "q9"],
+      "aggregation": "sum",
+      "thresholds": [2, 3, 4],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "plan_organize",
+      "label": "Планирование и организация",
+      "questions": ["q1", "q3", "q13"],
+      "aggregation": "sum",
+      "thresholds": [3, 4, 6],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "organization_materials",
+      "label": "Организация материалов",
+      "questions": ["q3"],
+      "aggregation": "sum",
+      "thresholds": [1, 1, 2],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "monitor",
+      "label": "Мониторинг",
+      "questions": ["q7", "q11", "q12", "q15"],
+      "aggregation": "sum",
+      "thresholds": [4, 6, 8],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [10, 20, 30],
+    "labels": ["Норма", "Легкие нарушения", "Умеренные нарушения", "Тяжелые нарушения"]
+  },
+  "flags": [
+    {
+      "id": "executive_dysfunction_mild",
+      "condition": "overall_score >= 10 && overall_score < 20",
+      "message": "Легкие нарушения исполнительных функций - рекомендуется наблюдение",
+      "severity": "low"
+    },
+    {
+      "id": "executive_dysfunction_moderate",
+      "condition": "overall_score >= 20 && overall_score < 30",
+      "message": "Умеренные нарушения исполнительных функций - требуется консультация специалиста",
+      "severity": "medium"
+    },
+    {
+      "id": "executive_dysfunction_severe",
+      "condition": "overall_score >= 30",
+      "message": "Тяжелые нарушения исполнительных функций - требуется комплексная оценка и поддержка",
+      "severity": "high"
+    }
+  ]
+}
+

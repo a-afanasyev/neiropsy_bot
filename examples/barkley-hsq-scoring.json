@@ -1,0 +1,74 @@
+{
+  "scales": [
+    {
+      "id": "problematic_situations",
+      "label": "Проблемные ситуации",
+      "questions": ["q1", "q2", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q11", "q12", "q13", "q14", "q15", "q16"],
+      "aggregation": "sum",
+      "thresholds": [8, 16, 32],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "routines",
+      "label": "Рутинные ситуации",
+      "questions": ["q3", "q4", "q5", "q6", "q7", "q8"],
+      "aggregation": "sum",
+      "thresholds": [3, 6, 12],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "social_situations",
+      "label": "Социальные ситуации",
+      "questions": ["q2", "q9", "q10", "q11", "q12", "q13", "q14"],
+      "aggregation": "sum",
+      "thresholds": [3, 7, 14],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    },
+    {
+      "id": "transition_situations",
+      "label": "Ситуации перехода",
+      "questions": ["q15", "q16"],
+      "aggregation": "sum",
+      "thresholds": [1, 2, 4],
+      "labels": ["Низкий", "Средний", "Высокий", "Очень высокий"]
+    }
+  ],
+  "overall": {
+    "strategy": "sum",
+    "thresholds": [8, 16, 32],
+    "labels": ["Норма", "Легкие проблемы", "Умеренные проблемы", "Серьезные проблемы"]
+  },
+  "flags": [
+    {
+      "id": "high_problematic_situations",
+      "condition": "scale.problematic_situations >= 16",
+      "message": "Высокий уровень проблемного поведения в домашних ситуациях - требуется консультация специалиста",
+      "severity": "high"
+    },
+    {
+      "id": "routine_problems",
+      "condition": "scale.routines >= 6",
+      "message": "Проблемы с выполнением рутинных задач (домашние задания, уборка, гигиена) - рекомендуется поведенческая терапия",
+      "severity": "medium"
+    },
+    {
+      "id": "social_problems",
+      "condition": "scale.social_situations >= 7",
+      "message": "Проблемы в социальных ситуациях (гости, общественные места) - требуется социальная поддержка",
+      "severity": "medium"
+    },
+    {
+      "id": "transition_problems",
+      "condition": "scale.transition_situations >= 2",
+      "message": "Проблемы с переходами между видами деятельности - рекомендуется структурирование распорядка дня",
+      "severity": "medium"
+    },
+    {
+      "id": "severe_home_problems",
+      "condition": "scale.problematic_situations >= 32",
+      "message": "Очень серьезные проблемы поведения в домашних ситуациях - требуется немедленная консультация специалиста",
+      "severity": "high"
+    }
+  ]
+}
+

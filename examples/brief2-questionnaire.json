@@ -1,0 +1,173 @@
+{
+  "title": "BRIEF-2 (Behavior Rating Inventory of Executive Function) - Инвентарь оценки исполнительных функций",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Ребенок имеет трудности с планированием задач",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Ребенок забывает инструкции",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Ребенок имеет трудности с организацией материалов",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Ребенок импульсивен",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Ребенок имеет трудности с контролем эмоций",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Ребенок имеет трудности с началом задач",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Ребенок имеет трудности с завершением задач",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Ребенок имеет трудности с переключением между задачами",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Ребенок имеет трудности с рабочей памятью",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Ребенок имеет трудности с самоконтролем",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Ребенок имеет трудности с мониторингом собственного поведения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Ребенок имеет трудности с управлением временем",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Ребенок имеет трудности с приоритизацией задач",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Ребенок имеет трудности с гибкостью мышления",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Ребенок имеет трудности с решением проблем",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Иногда", "score": 1 },
+        { "value": 2, "label": "Часто", "score": 2 }
+      ],
+      "required": true
+    }
+  ]
+}
+

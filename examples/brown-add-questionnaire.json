@@ -1,0 +1,268 @@
+{
+  "title": "Brown Attention-Deficit Disorder Scales (Brown ADD) - Оценка исполнительных функций (8-18 лет)",
+  "version": "1.0",
+  "language": "ru",
+  "questions": [
+    {
+      "id": "q1",
+      "text": "Испытывает трудности с организацией заданий и материалов",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q2",
+      "text": "Испытывает трудности с началом выполнения заданий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q3",
+      "text": "Испытывает трудности с определением приоритетов в задачах",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q4",
+      "text": "Испытывает трудности с фокусировкой внимания на задаче",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q5",
+      "text": "Испытывает трудности с поддержанием внимания в течение длительного времени",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q6",
+      "text": "Испытывает трудности с переключением внимания между задачами",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q7",
+      "text": "Легко отвлекается на посторонние стимулы",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q8",
+      "text": "Испытывает трудности с поддержанием бдительности и готовности к действию",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q9",
+      "text": "Испытывает трудности с поддержанием усилий при выполнении заданий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q10",
+      "text": "Работает медленнее, чем сверстники",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q11",
+      "text": "Испытывает трудности с обработкой информации",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q12",
+      "text": "Испытывает трудности с управлением фрустрацией",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q13",
+      "text": "Испытывает трудности с модуляцией эмоций",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q14",
+      "text": "Легко расстраивается или раздражается",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q15",
+      "text": "Испытывает трудности с использованием рабочей памяти",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q16",
+      "text": "Забывает инструкции или информацию, которую только что услышал",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q17",
+      "text": "Испытывает трудности с доступом к воспоминаниям в нужный момент",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q18",
+      "text": "Испытывает трудности с мониторингом собственных действий",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q19",
+      "text": "Испытывает трудности с саморегуляцией поведения",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    },
+    {
+      "id": "q20",
+      "text": "Не замечает собственных ошибок",
+      "type": "scale",
+      "options": [
+        { "value": 0, "label": "Никогда", "score": 0 },
+        { "value": 1, "label": "Редко", "score": 1 },
+        { "value": 2, "label": "Иногда", "score": 2 },
+        { "value": 3, "label": "Часто", "score": 3 },
+        { "value": 4, "label": "Очень часто", "score": 4 }
+      ],
+      "required": true
+    }
+  ]
+}
+
