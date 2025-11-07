@@ -33,6 +33,17 @@ if [ ! -f "$SCORING_FILE" ]; then
     exit 1
 fi
 
+# Проверка валидности JSON файлов перед использованием
+if ! jq empty "$QUESTIONNAIRE_FILE" 2>/dev/null; then
+    echo "Ошибка: файл $QUESTIONNAIRE_FILE содержит невалидный JSON"
+    exit 1
+fi
+
+if ! jq empty "$SCORING_FILE" 2>/dev/null; then
+    echo "Ошибка: файл $SCORING_FILE содержит невалидный JSON"
+    exit 1
+fi
+
 echo "📤 Загрузка опросника..."
 echo "📝 Questionnaire: $QUESTIONNAIRE_FILE"
 echo "📊 Scoring: $SCORING_FILE"
@@ -45,12 +56,13 @@ QUESTIONNAIRE_JSON=$(cat "$QUESTIONNAIRE_FILE")
 SCORING_JSON=$(cat "$SCORING_FILE")
 
 # Формируем JSON запрос
+# Используем --arg для telegram_id (это строка, не JSON), затем преобразуем в число
 REQUEST_JSON=$(jq -n \
   --argjson questionnaire "$QUESTIONNAIRE_JSON" \
   --argjson scoring "$SCORING_JSON" \
-  --argjson telegram_id "$TELEGRAM_ID" \
+  --arg telegram_id "$TELEGRAM_ID" \
   '{
-    telegram_id: $telegram_id,
+    telegram_id: ($telegram_id | tonumber),
     questionnaire: $questionnaire,
     scoring: $scoring
   }')

@@ -48,17 +48,29 @@ upload_questionnaire() {
         return 1
     fi
     
+    # Проверка валидности JSON файлов перед использованием
+    if ! jq empty "$questionnaire_file" 2>/dev/null; then
+        echo -e "${RED}  ❌ Файл $questionnaire_file содержит невалидный JSON${NC}"
+        return 1
+    fi
+    
+    if ! jq empty "$scoring_file" 2>/dev/null; then
+        echo -e "${RED}  ❌ Файл $scoring_file содержит невалидный JSON${NC}"
+        return 1
+    fi
+    
     # Читаем содержимое файлов
     local questionnaire_json=$(cat "$questionnaire_file")
     local scoring_json=$(cat "$scoring_file")
     
     # Формируем JSON запрос
+    # Используем --arg для telegram_id (это строка, не JSON), затем преобразуем в число
     local request_json=$(jq -n \
       --argjson questionnaire "$questionnaire_json" \
       --argjson scoring "$scoring_json" \
-      --argjson telegram_id "$TELEGRAM_ID" \
+      --arg telegram_id "$TELEGRAM_ID" \
       '{
-        telegram_id: $telegram_id,
+        telegram_id: ($telegram_id | tonumber),
         questionnaire: $questionnaire,
         scoring: $scoring
       }')
