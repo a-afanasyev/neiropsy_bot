@@ -15,11 +15,15 @@ services:
       - ADMIN_TELEGRAM_ID=${ADMIN_TELEGRAM_ID}
       - ADMIN_TELEGRAM_IDS=${ADMIN_TELEGRAM_IDS}
       - DATABASE_URL=postgres://neiropsy:neiropsy_password@db:5432/neiropsy_db
-      - REDIS_URL=redis://redis:6379/0
+      # Redis опционален - если не указан, используется in-memory хранилище
+      - REDIS_URL=${REDIS_URL:-redis://redis:6379/0}
       - PORT=8088
     depends_on:
-      - db
-      - redis
+      db:
+        condition: service_healthy
+      # Redis опционален - приложение может работать без него (in-memory хранилище)
+      # redis:
+      #   condition: service_healthy
     restart: unless-stopped
     # volumes:
     #   - ./app:/app
