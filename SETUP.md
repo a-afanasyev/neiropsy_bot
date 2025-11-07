@@ -68,6 +68,8 @@ cp .env.example .env
 # Telegram Configuration
 TELEGRAM_BOT_TOKEN=ВАШ_ТОКЕН_БОТА
 ADMIN_TELEGRAM_ID=ВАШ_TELEGRAM_ID
+# Для поддержки нескольких администраторов используйте ADMIN_TELEGRAM_IDS:
+# ADMIN_TELEGRAM_IDS=48617336,134502444
 
 # Database
 DATABASE_URL=postgres://neiropsy:neiropsy_password@db:5432/neiropsy_db
@@ -154,15 +156,13 @@ npm install
 
 ### Шаг 4: Настройка .env
 
-```bash
-cp .env.example .env
-```
-
-Отредактируйте `.env` для локальной разработки:
+Создайте файл `.env` в корне проекта со следующим содержимым:
 
 ```env
 TELEGRAM_BOT_TOKEN=ВАШ_ТОКЕН_БОТА
 ADMIN_TELEGRAM_ID=ВАШ_TELEGRAM_ID
+# Для поддержки нескольких администраторов используйте ADMIN_TELEGRAM_IDS:
+# ADMIN_TELEGRAM_IDS=48617336,134502444
 DATABASE_URL=postgres://neiropsy:neiropsy_password@localhost:5432/neiropsy_db
 REDIS_URL=redis://localhost:6379/0
 PORT=8088
@@ -205,8 +205,11 @@ npm start
 | Переменная | Описание | Пример |
 |------------|----------|--------|
 | `TELEGRAM_BOT_TOKEN` | Токен бота от @BotFather | `123456:ABC-DEF...` |
-| `ADMIN_TELEGRAM_ID` | Ваш Telegram ID | `123456789` |
+| `ADMIN_TELEGRAM_ID` | Ваш Telegram ID (для обратной совместимости) | `123456789` |
+| `ADMIN_TELEGRAM_IDS` | Список Telegram ID администраторов через запятую | `123456789,987654321` |
 | `DATABASE_URL` | URL PostgreSQL | `postgres://user:pass@host:5432/db` |
+
+**Примечание:** Требуется указать либо `ADMIN_TELEGRAM_ID`, либо `ADMIN_TELEGRAM_IDS`. Если указан `ADMIN_TELEGRAM_IDS`, он имеет приоритет и позволяет добавить несколько администраторов.
 
 ### Опциональные параметры
 
@@ -261,14 +264,23 @@ cd examples
 # Сделать скрипт исполняемым
 chmod +x upload-questionnaire.sh
 
-# Загрузить СДВГ опросник
+# Установить переменные окружения
 export API_URL=http://localhost:8088
 export ADMIN_TELEGRAM_ID=ваш_id
-./upload-questionnaire.sh adhd-questionnaire.json adhd-scoring.json
 
-# Загрузить M-CHAT опросник
+# Загрузить опросники (примеры)
+./upload-questionnaire.sh adhd-questionnaire.json adhd-scoring.json
 ./upload-questionnaire.sh mchat-questionnaire.json mchat-scoring.json
+
+# Доступны также следующие опросники:
+# - Conners 3, Vanderbilt, DuPaul, SNAP-IV (СДВГ)
+# - Barkley HSQ/SSQ (поведение в ситуациях)
+# - Brown ADD, WURS (исполнительные функции)
+# - CARS-2, GARS-3, ADOS-2, ADI-R, SRS-2, SCQ, AQ, ASSQ, CAST (аутизм)
+# - BRIEF-2 (исполнительные функции)
 ```
+
+**Полный список доступных опросников см. в [examples/QUESTIONNAIRES.md](./examples/QUESTIONNAIRES.md)**
 
 ### Через curl
 
@@ -295,29 +307,41 @@ EOF
 
 ## Проверка работоспособности
 
-### 1. Создание батча через бота
+### 1. Создание опроса через бота
 
 1. Откройте бота в Telegram
-2. Нажмите "Создать батч"
-3. Выберите опросники
-4. Получите ссылку
+2. Нажмите "📋 Создать опрос"
+3. Выберите опросники из списка
+4. Подтвердите создание
+5. Получите ссылку для клиента
 
-### 2. Прохождение опроса
+### 2. Просмотр списка опросников
+
+1. Откройте бота в Telegram
+2. Нажмите "📚 Список опросников"
+3. Выберите опросник для просмотра деталей
+4. Просмотрите вопросы, опции ответов и шкалы оценки
+5. Используйте кнопку "◀️ Назад к списку" для возврата
+
+### 3. Прохождение опроса
 
 1. Откройте ссылку в другом аккаунте Telegram (или браузере)
-2. Нажмите "Начать"
+2. Нажмите "▶️ Начать"
 3. Ответьте на вопросы
 4. Проверьте, что администратор получил уведомление
 
-### 3. Просмотр отчета
+### 4. Просмотр отчета
 
-1. Нажмите "Посмотреть отчет" в уведомлении
-2. Проверьте корректность данных
+1. В меню администратора нажмите "📊 Мои опросы"
+2. Выберите завершенный опрос из списка
+3. Просмотрите автоматически сгенерированный отчет
+4. Нажмите "📋 Ответы на вопросы" для детального просмотра всех ответов по каждому опроснику
 
-### 4. Экспорт данных
+### 5. Экспорт данных
 
-1. Нажмите "Выгрузить JSON" или "Выгрузить CSV"
-2. Проверьте полученный файл
+1. В просмотре отчета нажмите "📄 Получить JSON" или "📊 Получить CSV"
+2. Скопируйте ссылку и откройте в браузере
+3. Проверьте полученный файл
 
 ## Troubleshooting
 
@@ -375,8 +399,13 @@ docker-compose ps redis
 # Проверьте формат JSON
 cat adhd-questionnaire.json | jq .
 
-# Проверьте что ваш ID совпадает с ADMIN_TELEGRAM_ID
+# Проверьте что ваш ID совпадает с ADMIN_TELEGRAM_ID или находится в ADMIN_TELEGRAM_IDS
 echo $ADMIN_TELEGRAM_ID
+echo $ADMIN_TELEGRAM_IDS
+
+# Для нескольких администраторов убедитесь, что ID указаны через запятую без пробелов
+# Правильно: ADMIN_TELEGRAM_IDS=123456,789012
+# Неправильно: ADMIN_TELEGRAM_IDS=123456, 789012
 ```
 
 ### Проблема: Порт 8088 занят

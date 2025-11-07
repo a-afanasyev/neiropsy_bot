@@ -5,7 +5,12 @@
 
 # Настройки
 API_URL=${API_URL:-http://localhost:8088}
-TELEGRAM_ID=${ADMIN_TELEGRAM_ID:-123456789}
+# Поддержка нескольких администраторов: берем первый ID из ADMIN_TELEGRAM_IDS или используем ADMIN_TELEGRAM_ID
+if [ -n "$ADMIN_TELEGRAM_IDS" ]; then
+    TELEGRAM_ID=${ADMIN_TELEGRAM_IDS%%,*}  # Берем первый ID из списка
+else
+    TELEGRAM_ID=${ADMIN_TELEGRAM_ID:-123456789}
+fi
 
 # Проверка аргументов
 if [ $# -lt 2 ]; then
